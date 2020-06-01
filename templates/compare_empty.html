@@ -1,0 +1,13 @@
+{% load static %}
+<div class="notify">
+    <div class="notify-body">
+        <svg class="notify-icon" role="img">
+            <use xlink:href="{% static '/images/sprite.svg' %}#cart-icon"></use>
+        </svg>
+        <div class="notify-text">
+            <p class="notify-title">Нет товаров для сравнения</p>
+            <p class="notify-desc">Для добавления товаров в сравниваемые перейдите в каталог</p>
+        </div>
+    </div>
+    <div class="notify-button simple-button" href="{% url 'catalog:CategoryList' %}">Перейти в каталог</div>
+</div>

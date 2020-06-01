@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="breadcrumbs">
+					<ul>
+						<li><a href="/">Главная</a></li>
+						<li> <span>Контакты</span></li>
+					</ul>
+				</div>
+				<p class="page__title">Контакты</p>
+				<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+				<div class="contacts-block">
+					<div class="row">
+						<div class="col-12 col-lg-4">
+							<div class="contacts-block__info" itemscope="" itemtype="http://schema.org/LocalBusiness"><b class="contacts-block__title" itemprop="name">safasfasfa</b>
+								<div class="requisite-block"><b class="requisite-block__title">Адрес</b><span class="requisite-block__value" itemprop="address">asafasfasfasfasfasfas</span></div>
+								<div class="requisite-block"><b class="requisite-block__title">Телефоны</b><a class="requisite-block__value" href="tel:123213123123" itemprop="telephone">123213123123</a></div>
+								<div class="requisite-block"><b class="requisite-block__title">Режим работы</b><span class="requisite-block__value" itemprop="openingHours">asafasfasfasfasfasfas</span></div>
+
+								
+							</div>
+						</div>
+						<div class="col-12 col-lg-8">
+								<div class="contacts-block__requisite-table requisite-table table-responsive">
+										<table>
+											<tbody>
+											<tr>
+												<td colspan="3">
+														Сотрудники компании
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<a href="mailto:sh@dto.ooo">123@mail.ru</a>
+												</td>
+												<td>
+														Андрей Андрей
+												</td>
+												<td>
+														Ведущий специалист отдела продаж
+												</td>
+
+											</tr>
+											<tr>
+												<td>
+												<a href="mailto:rv@dto.ooo">122@mail.ru</a>
+												</td>
+												<td>
+														Роман Роман
+												</td>
+												<td>
+														Ведущий специалист отдела продаж
+												</td>
+											</tr>
+											<tr>
+												<td>
+												<a href="mailto:sh@dto.ooo">121@mail.ru</a>
+												</td>
+												<td>
+														Сергей Сергей
+												</td>
+												<td>
+														Ведущий специалист отдела продаж
+												</td>
+											</tr>
+											</tbody>
+											</table>
+									</div>
+							
+						</div>
+						<div class="col-12">
+							<div class="contacts-block__map-container" id="map-1">
+								<div data-lat="12.123123" data-lng="12.123123" data-message="1231231231" data-popup="3242342342342"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

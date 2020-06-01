@@ -1,0 +1,465 @@
+extends base.pug
+block append head
+	- var pageTitle = "Главная страница"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li
+								a(href="/") Каталог
+							li 
+								span H1. Оборудование для общепита
+								
+					p.page__title H1. Оборудование для общепита
+
+				.col-12.col-xl-3
+					span.mobile-filters-trigger.simple-button.d-xl-none Фильтры
+					noindex
+						.filters
+							.filters__mobile-wrapper
+								form.filters__form(method="GET" action="")
+									a.filters__counter(href="")
+										button.filters__counter-button(type="submit" value="Показать")
+
+									.filter-block
+										a.filter-block__header(href="#filter-block-0" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block-0") Подкатегории
+										.filter-block__body.collapse.show#filter-block-0
+											.filter-block__wrapper
+												input.filter-block__search-field.filter-block__text-input(type="text" placeholder="Поиск")
+												.filter-block__scroll-content
+													.filter-block__group
+														// .custom-control.custom-checkbox
+														// 	input.custom-control-input(type="checkbox" id="customControlInline")
+														// 	label.custom-control-label(for="customControlInline") Remember my preference
+															
+														a(href="#").filter-block__category-link Барное оборудование
+														a(href="#").filter-block__category-link Вентиляционное оборудование
+														a(href="#").filter-block__category-link Кофемашины, кофе на песке, автоматы
+														a(href="#").filter-block__category-link Моечное оборудование
+														a(href="#").filter-block__category-link Нейтральное и вспомогательное оборудование
+														a(href="#").filter-block__category-link Тепловое оборудование
+														a(href="#").filter-block__category-link Барное оборудование
+														a(href="#").filter-block__category-link Вентиляционное оборудование
+														a(href="#").filter-block__category-link Кофемашины, кофе на песке, автоматы
+														a(href="#").filter-block__category-link Моечное оборудование
+														a(href="#").filter-block__category-link Нейтральное и вспомогательное оборудование
+														a(href="#").filter-block__category-link Тепловое оборудование
+														a(href="#").filter-block__category-link Барное оборудование
+														a(href="#").filter-block__category-link Вентиляционное оборудование
+														a(href="#").filter-block__category-link Кофемашины, кофе на песке, автоматы
+														a(href="#").filter-block__category-link Моечное оборудование
+														a(href="#").filter-block__category-link Нейтральное и вспомогательное оборудование
+														a(href="#").filter-block__category-link Тепловое оборудование
+									
+									
+									.filter-block
+										a.filter-block__header(href="#filter-block-1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block-1") Цена
+										.filter-block__body.collapse.show#filter-block-1
+											.filter-block__wrapper
+												.range-slider-field
+													.range-slider-field__inputs
+														input.range-slider-field__min-price.filter-block__text-input(name="price-min" type="text" value="0")
+														input.range-slider-field__max-price.filter-block__text-input(name="price-max" type="text" value="10000")
+													
+													input(type="text" id="price_range-slider-field_01" class="range-slider-field__slider" data-type="double" data-min="0" data-max="10000" data-from="0" data-to="10000" value="")
+
+
+									.filter-block
+										a.filter-block__header(href="#filter-block-2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block-2") Фильтр радиокнопок
+										.filter-block__body.collapse.show#filter-block-2
+											.filter-block__wrapper
+												.filter-block__scroll-content
+													.filter-group
+														.custom-control.custom-radio
+															input(type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked)
+															label(class="custom-control-label" for="customRadio1") Неактивная
+															
+														.custom-control.custom-radio
+															input(type="radio" id="customRadio2" name="customRadio" class="custom-control-input")
+															label(class="custom-control-label" for="customRadio2") Активная
+
+									.filter-block
+										a.filter-block__header(href="#filter-block-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block-3") Фильтр выбора цвета
+										.filter-block__body.collapse.show#filter-block-3
+											.filter-block__wrapper
+												label.color-checkbox.color-checkbox_white-color(for="color-1")
+													input(type="checkbox" name="color" id="color-1" checked)
+													s.color-checkbox__new-checkbox(style="background-color: #ffffff;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-2")
+													input(type="checkbox" name="color" id="color-2")
+													s.color-checkbox__new-checkbox(style="background-color: #0275d8;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-3")
+													input(type="checkbox" name="color" id="color-3")
+													s.color-checkbox__new-checkbox(style="background-color: #5cb85c;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-4")
+													input(type="checkbox" name="color" id="color-4")
+													s.color-checkbox__new-checkbox(style="background-color: #5bc0de;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-5")
+													input(type="checkbox" name="color" id="color-5")
+													s.color-checkbox__new-checkbox(style="background-color: #f0ad4e;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-6")
+													input(type="checkbox" name="color" id="color-6")
+													s.color-checkbox__new-checkbox(style="background-color: #d9534f;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-7")
+													input(type="checkbox" name="color" id="color-7")
+													s.color-checkbox__new-checkbox(style="background-color: #ffd506;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-6")
+													input(type="checkbox" name="color" id="color-6")
+													s.color-checkbox__new-checkbox(style="background-color: #d9534f;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+												label.color-checkbox(for="color-7")
+													input(type="checkbox" name="color" id="color-7")
+													s.color-checkbox__new-checkbox(style="background-color: #ffd506;")
+														svg(role="img" width="11px" height="7px")
+															use(xlink:href="/static/images/sprite.svg#checkbox-arrow")
+
+									.filter-block
+										a.filter-block__header.collapsed(href="#filter-block-4" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-block-4") Скрытый фильтр
+										.filter-block__body.collapse#filter-block-4
+											.filter-block__wrapper
+												.filter-block__scroll-content
+													.filter-group
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck11" name="bbbb" checked="checked")
+															label.custom-control-label(for="customCheck11") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck22" name="bbbb")
+															label.custom-control-label(for="customCheck22") Вентиляционное оборудование
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck33" name="bbbb")
+															label.custom-control-label(for="customCheck33") Кофемашины, кофе на песке, автоматы
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck44" name="bbbb")
+															label.custom-control-label(for="customCheck44") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck111" name="bbbb" checked="checked")
+															label.custom-control-label(for="customCheck111") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck222" name="bbbb")
+															label.custom-control-label(for="customCheck222") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck333" name="bbbb")
+															label.custom-control-label(for="customCheck333") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck444" name="bbbb")
+															label.custom-control-label(for="customCheck444") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck11" name="bbbb" checked="checked")
+															label.custom-control-label(for="customCheck11") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck22" name="bbbb")
+															label.custom-control-label(for="customCheck22") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck33" name="bbbb")
+															label.custom-control-label(for="customCheck33") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck44" name="bbbb")
+															label.custom-control-label(for="customCheck44") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck111" name="bbbb" checked="checked")
+															label.custom-control-label(for="customCheck111") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck222" name="bbbb")
+															label.custom-control-label(for="customCheck222") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck333" name="bbbb")
+															label.custom-control-label(for="customCheck333") Текст чекбокса
+														.custom-control.custom-checkbox
+															input.custom-control-input(type="checkbox" id="customCheck444" name="bbbb")
+															label.custom-control-label(for="customCheck444") Текст чекбокса
+
+									.filters__footer
+										p.filters__footer-result Подобрано 2 товара
+										.filters__footer-buttons
+											input.filters__submit.simple-button(type="submit" value="Показать")
+											input.filters__reset#reset-filter(type="reset" value="Сбросить")
+								
+
+							.filters__mobile-footer.d-xl-none
+								p.filters__mobile-result Подобрано 2 товара
+								.filters__mobile-controllers
+									button.filters__mobile-submit.simple-button Показать
+									button.filters__mobile-reset Сбросить
+
+				.col-12.col-xl-9
+					form.sort-parameters(action="")
+						.sort-parameters__order-by Сортировать по:
+							select(name="sort")
+								option(value="default") умолчанию
+								option(value="price") цене ↑
+								option(value="price") цене ↓
+								option(value="price") названию ↑
+								option(value="price") названию ↓
+
+						.sort-parameters__layout-types
+							button.active(data-url="/" type="button" data-type="tile")
+								svg(role="img" width="14px" height="14px")
+									use(xlink:href="/static/images/sprite.svg#grid-three-up")
+
+							button(data-url="/" type="button" data-type="wide")
+								svg(role="img" width="16px" height="14px")
+									use(xlink:href="/static/images/sprite.svg#list")
+
+					
+					.row
+						.col-12.col-sm-6.col-lg-4
+							a(href="#").product-card
+								span.product-card__thumb(style="background-image: url(/static/images/product1.jpg);")
+								span.product-card__labels
+									span.product-card__label.product-card__label_yellow Скидка
+
+								span.product-card__info
+									span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+									span.product-card__params
+										span.product-card__param
+											span.product-card__param-title Бренд
+											span.product-card__param-value.product-card__param-value_brand VIATTO
+
+										span.product-card__param
+											span.product-card__param-title Страна
+											span.product-card__param-value Италия
+
+									span.product-card__price-row
+										b.product-card__new-price 3 540 руб.
+										span.product-card__old-price 4 540 руб.
+
+									span.product-card__buttons
+										button.product-card__button.product-card__add-to-cart.simple-button В корзину
+										button.product-card__button.product-card__add-to-favorites
+											svg(role="img" width="17px" height="15px")
+												use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+										button.product-card__button.product-card__add-to-compare
+											svg(role="img" width="15px" height="14px")
+												use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+						.col-12.col-sm-6.col-lg-4
+							a(href="#").product-card
+								span.product-card__thumb(style="background-image: url(/static/images/product2.jpg);")
+								span.product-card__labels
+									span.product-card__label.product-card__label_green Новинка
+									
+								span.product-card__info
+									span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+									span.product-card__params
+										span.product-card__param
+											span.product-card__param-title Бренд
+											span.product-card__param-value.product-card__param-value_brand VIATTO
+
+										span.product-card__param
+											span.product-card__param-title Страна
+											span.product-card__param-value Италия
+
+									span.product-card__price-row
+										b.product-card__price Цена по запросу
+
+									span.product-card__buttons
+										button.product-card__button.product-card__get-price.empty-button Узнать цену
+										button.product-card__button.product-card__add-to-favorites
+											svg(role="img" width="17px" height="15px")
+												use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+										button.product-card__button.product-card__add-to-compare
+											svg(role="img" width="15px" height="14px")
+												use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+						.col-12.col-sm-6.col-lg-4
+							a(href="#").product-card
+								span.product-card__thumb.product-card__thumb_none
+									svg(role="img")
+										use(xlink:href="/static/images/sprite.svg#no_photo")
+
+								span.product-card__labels
+									span.product-card__label.product-card__label_blue Хит
+									
+								span.product-card__info
+									span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+									span.product-card__params
+										span.product-card__param
+											span.product-card__param-title Бренд
+											span.product-card__param-value.product-card__param-value_brand VIATTO
+
+										span.product-card__param
+											span.product-card__param-title Страна
+											span.product-card__param-value Италия
+
+									span.product-card__price-row
+										b.product-card__price 3 540 руб.
+
+									span.product-card__buttons
+										button.product-card__button.product-card__add-to-cart.simple-button В корзину
+										button.product-card__button.product-card__add-to-favorites
+											svg(role="img" width="17px" height="15px")
+												use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+										button.product-card__button.product-card__add-to-compare
+											svg(role="img" width="15px" height="14px")
+												use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+
+
+
+						.col-12.col-sm-6.col-md-12
+							a(href="#").product-card-wide
+								span.product-card-wide__thumb(style="background-image: url(/static/images/product2.jpg);")
+								span.product-card-wide__labels
+									span.product-card-wide__label.product-card-wide__label_blue Хит
+									
+								span.product-card-wide__info
+									span.product-card-wide__info-left
+										span.product-card-wide__title Кулер напольный с нагревом и электронным охлаждением LD-AEL-28 white/silver
+										span.product-card-wide__params
+											span.product-card-wide__param
+												span.product-card-wide__param-title Бренд
+												span.product-card-wide__param-value.product-card-wide__param-value_brand VIATTO
+
+											span.product-card-wide__param
+												span.product-card-wide__param-title Страна
+												span.product-card-wide__param-value Италия
+
+									span.product-card-wide__info-right
+										span.product-card-wide__price-row
+											b.product-card__new-price 3 540 руб.
+											span.product-card__old-price 4 540 руб.
+
+										span.product-card-wide__buttons
+											button.product-card-wide__button.product-card-wide__add-to-cart.simple-button В корзину
+											button.product-card-wide__button.product-card-wide__add-to-favorites
+												svg(role="img" width="17px" height="15px")
+													use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+											button.product-card-wide__button.product-card-wide__add-to-compare
+												svg(role="img" width="15px" height="14px")
+													use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+						.col-12.col-sm-6.col-md-12
+							a(href="#").product-card-wide
+								span.product-card-wide__thumb.product-card-wide__thumb_none
+									svg(role="img")
+										use(xlink:href="/static/images/sprite.svg#no_photo")
+								span.product-card-wide__labels
+									span.product-card-wide__label.product-card-wide__label_green Новинка
+									
+								span.product-card-wide__info
+									span.product-card-wide__info-left
+										span.product-card-wide__title Упаковщик вакуумный VIATTO DZ-350MS
+										span.product-card-wide__params
+											span.product-card-wide__param
+												span.product-card-wide__param-title Бренд
+												span.product-card-wide__param-value.product-card-wide__param-value_brand VIATTO
+
+											span.product-card-wide__param
+												span.product-card-wide__param-title Страна
+												span.product-card-wide__param-value Италия
+
+									span.product-card-wide__info-right
+										span.product-card-wide__price-row
+											b.product-card-wide__price Цена по запросу
+
+										span.product-card-wide__buttons
+											button.product-card-wide__button.product-card-wide__get-price.empty-button Узнать цену
+											button.product-card-wide__button.product-card-wide__add-to-favorites
+												svg(role="img" width="17px" height="15px")
+													use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+											button.product-card-wide__button.product-card-wide__add-to-compare
+												svg(role="img" width="15px" height="14px")
+													use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+						.col-12
+							a.load-content.empty-button(href="#") Показать еще
+
+							//- nav
+							//- 	ul.pagination.justify-content-center
+							//- 		li.page-item
+							//- 			a.page-link(href="#" aria-label="Previous" data-page="")
+							//- 				span(aria-hidden="true") «
+							//- 		li.page-item.active
+							//- 			a.page-link(href="#" data-page="") 1
+
+							//- 		li.page-item
+							//- 			a.page-link(href="#" data-page="") 2
+
+							//- 		li.page-item
+							//- 			a.page-link(href="#" data-page="") 3
+											
+							//- 		li.page-item
+							//- 			a.page-link(href="/" data-page="/" aria-label="Next")
+							//- 				span(aria-hidden="true") »
+
+							.pagination
+								.pagination-items
+									a.pagination-item.prev(href="#") «
+									span.pagination-item.active 1
+									a.pagination-item(href="#") 2
+									a.pagination-item(href="#") 3
+									a.pagination-item(href="#") 4
+									a.pagination-item(href="#") 5
+									span.pagination-item.pagination-item_dots ...
+									a.pagination-item(href="#") 24
+									a.pagination-item.next(href="#") »
+
+
+
+
+		section.seo-scroller
+			.container
+				.row
+					.col-12.col-lg-6
+						.seo-scroller__seo-images
+							<img src="/static/images/seo-img1.jpg" alt="img"/>
+							//- <img src="/static/images/seo-img1.jpg" alt="img"/>
+							//- <img src="/static/images/seo-img2.jpg" alt="img"/>
+							//- <img src="/static/images/seo-img3.jpg" alt="img"/>
+
+					.col-12.col-lg-6
+						.seo-scroller__seo-text
+							.content-text
+								h1 H1. Пример заголовка SEO текста в две строки
+								p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+								p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+								h2 H2. Пример подзаголовка второго уровня типовой текстовой страницы в две строки или более
+								p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+								h3 H3. Пример подзаголовка третьего уровня типовой страницы
+								p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+								p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+								h3 H3. Пример подзаголовка третьего уровня типовой страницы
+								p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+								p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+								h3 H3. Пример подзаголовка третьего уровня типовой страницы
+								p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+								p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+								h3 H3. Пример подзаголовка третьего уровня типовой страницы
+								p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+								p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+

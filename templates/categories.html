@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+<div class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs">
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li> <span>Каталог товаров</span></li>
+                    </ul>
+                </div>
+                <p class="page__title">Каталог товаров</p>
+            </div>
+            <div class="col-12">
+                <div class="catalog-collapse" id="catalog-collapse">
+                    <div class="row">
+                        {% for category in catalog %}
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="catalog-block">
+                                    <span class="catalog-block__image"><img src="{{ MEDIA_URL }}{{ category.image }}" alt="category image"/></span>
+                                    <span class="catalog-block__content">
+                                        <a class="catalog-block__title" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+                                        {% with category.get_childs as childs %}
+                                            {% if childs|length > 5 %}
+                                                {% for child in childs|slice:":5" %}
+                                                <a class="catalog-block__link" href="{{ child.get_absolute_url }}">{{ child.title }}</a>
+                                                {% endfor %}
+                                                <div class="catalog-collapse__collapse collapse" id="catalog-collapse{{ forloop.counter }}" aria-labelledby="headingOne">
+                                                    <div class="catalog-collapse__collapse-content">
+                                                        {% for child in childs|slice:"5:" %}
+                                                            <a class="catalog-block__link" href="{{ child.get_absolute_url }}">{{ child.title }}</a>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                                <a class="catalog-block__collapse-trigger collapsed" data-toggle="collapse" data-target="#catalog-collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="catalog-collapse{{ forloop.counter }}"></a>
+                                            {% else %}
+                                                {% for child in childs %}
+                                                    <a class="catalog-block__link" href="{{ child.get_absolute_url }}">{{ child.title }}</a>
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% endwith %}
+                                    </span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    

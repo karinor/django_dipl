@@ -1,0 +1,23 @@
+extends base.pug
+block append head
+	- var pageTitle = "Корзина"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li 
+								span 404
+
+				.col-12
+					.wrapper-404
+						strong.wrapper-404__error-code 404
+						b.wrapper-404__title Страница не найдена
+						span.wrapper-404__desc Выберите интересующий раздел в меню или перейдите на главную страницу сайта.
+						a.simple-button.wrapper-404__to-index(href="/") Перейти на главную

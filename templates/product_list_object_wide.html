@@ -1,0 +1,66 @@
+{% block product_list_details %}
+{% load static %}
+    <a class="product-card-wide" href="{% url 'catalog:ProductDetails' slug=product.slug %}">
+    {% if product.price == 0 %}
+        <span class="product-card-wide__thumb product-card-wide__thumb_none" style="background-image: url({{ MEDIA_URL }}{{ product.image }});"></span>
+    {% else %}
+        <span class="product-card-wide__thumb" style="background-image: url({{ MEDIA_URL }}{{ product.image }});"></span>
+    {% endif %}
+    <span class="product-card-wide__labels">
+        <span class="product-card-wide__label product-card-wide__label_blue">Хит</span>
+        {% if product.is_new %}
+        <span class="product-card-wide__label product-card-wide__label_green">Новинка</span>
+        {% endif %}
+        {% if product.discount_multiplier < 1.0 %}
+        <span class="product-card-wide__label product-card-wide__label_yellow">Скидка</span>
+        {% endif %}
+    </span>
+    <span class="product-card-wide__info">
+    <span class="product-card-wide__info-left">
+        <span class="product-card-wide__title">{{ product.title }}</span>
+        <span class="product-card-wide__params">
+            {% if product.brand %}
+                <span class="product-card-wide__param">
+                    <span class="product-card-wide__param-title">Бренд</span>
+                    <span class="product-card-wide__param-value product-card-wide__param-value_brand">{{ product.brand }}</span>
+                </span>
+            {% endif %}
+            {% if product.country %}
+                <span class="product-card-wide__param">
+                    <span class="product-card-wide__param-title">Страна</span>
+                    <span class="product-card-wide__param-value">{{ product.country }}</span>
+                </span>
+            {% endif %}
+        </span>
+    </span>
+    <span class="product-card-wide__info-right">
+        <span class="product-card-wide__price-row">
+            {% if product.price == 0 %}
+                <b class="product-card__price">Цена по запросу</b>
+            {% elif product.discount_multiplier < 1.0 %}
+                <b class="product-card__new-price">{{ product.get_discount_price }} руб.</b>
+                <span class="product-card__old-price">{{ product.price }} руб.</span>
+            {% else %}
+                <b class="product-card__price">{{ product.price }} руб.</b>
+            {% endif %}
+        </span>
+        <span class="product-card-wide__buttons" data-id="{{ product.pk }}">
+            {% if product.price == 0 %}
+                <button class="product-card__button product-card-wide__get-price empty-button">Узнать цену</button>
+            {% else %}
+                <button class="product-card__button product-card-wide__add-to-cart simple-button">В корзину</button>
+            {% endif %}
+            <button class="product-card__button product-card-wide__add-to-favorites" data-add="action=favorites&add={{ product.pk }}">
+                <svg role="img" width="17px" height="15px">
+                    <use xlink:href="{% static 'images/sprite.svg' %}#heart-empty"></use>
+                </svg>
+            </button>
+            <button class="product-card__button product-card-wide__add-to-compare" data-add="action=compare&add={{ product.pk }}">
+                <svg role="img" width="15px" height="14px">
+                    <use xlink:href="{% static 'images/sprite.svg' %}#compare-empty"></use>
+                </svg>
+            </button>
+        </span>
+    </span>
+    </a>
+{% endblock product_list_details %}

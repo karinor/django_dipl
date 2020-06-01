@@ -1,0 +1,6 @@
+{% load static %}
+{% for product in page.object_list %}
+<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+    {% include 'product_list_object.html' with product=product %}
+</div>
+{% endfor %}

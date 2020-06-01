@@ -1,0 +1,289 @@
+extends base.pug
+block append head
+	- var pageTitle = "Сравнение товаров"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li 
+								span Сравнение товаров
+								
+					p.page__title Сравнение товаров
+
+					.compare-component
+						.row
+							.col-12
+								.compare-component__main
+									.row
+										.col-12.col-lg-3
+											.compare-component__controlls
+												//- .compare-component__categories
+												//- 	a.compare-component__categories-item.active(href="#") Компрессоры
+												//- 	a.compare-component__categories-item(href="#") Кулеры
+												//- 	a.compare-component__categories-item(href="#") Агрегаты холодильные
+													
+												label.compare-component__toggle-button.toggle-button.show-different
+													input.toggle-button__input(type="checkbox")
+													span.toggle-button__custom-button
+													span.toggle-button__text Только различающиеся параметры
+										
+										.col-12.col-lg-9
+											.compare-component__product-scroller-wrapper
+												.compare-component__product-scroller
+													a(href="#").product-card
+														span.product-card__thumb(style="background-image: url(/static/images/product1.jpg);")
+
+														span.product-card__labels
+															span.product-card__label.product-card__label_yellow Скидка
+
+														span.product-card__remove
+
+														span.product-card__info
+															span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+															span.product-card__params
+																span.product-card__param
+																	span.product-card__param-title Бренд
+																	span.product-card__param-value.product-card__param-value_brand VIATTO
+
+																span.product-card__param
+																	span.product-card__param-title Страна
+																	span.product-card__param-value Италия
+
+															span.product-card__price-row
+																b.product-card__new-price 3 540 руб.
+																span.product-card__old-price 4 540 руб.
+
+															span.product-card__buttons
+																button.product-card__button.product-card__add-to-cart.simple-button В корзину
+																button.product-card__button.product-card__add-to-favorites
+																	svg(role="img" width="17px" height="15px")
+																		use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+																button.product-card__button.product-card__add-to-compare
+																	svg(role="img" width="15px" height="14px")
+																		use(xlink:href="/static/images/sprite.svg#compare-empty")
+													
+													a(href="#").product-card
+														span.product-card__thumb(style="background-image: url(/static/images/product2.jpg);")
+
+														span.product-card__labels
+															span.product-card__label.product-card__label_green Новинка
+
+														span.product-card__remove
+															
+														span.product-card__info
+															span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+															span.product-card__params
+																span.product-card__param
+																	span.product-card__param-title Бренд
+																	span.product-card__param-value.product-card__param-value_brand VIATTO
+
+																span.product-card__param
+																	span.product-card__param-title Страна
+																	span.product-card__param-value Италия
+
+															span.product-card__price-row
+																b.product-card__price Цена по запросу
+
+															span.product-card__buttons
+																button.product-card__button.product-card__get-price.empty-button Узнать цену
+																button.product-card__button.product-card__add-to-favorites
+																	svg(role="img" width="17px" height="15px")
+																		use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+																button.product-card__button.product-card__add-to-compare
+																	svg(role="img" width="15px" height="14px")
+																		use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+													a(href="#").product-card
+														span.product-card__thumb.product-card__thumb_none
+															svg(role="img")
+																use(xlink:href="/static/images/sprite.svg#no_photo")
+
+														span.product-card__labels
+															span.product-card__label.product-card__label_blue Хит
+
+														span.product-card__remove
+															
+														span.product-card__info
+															span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+															span.product-card__params
+																span.product-card__param
+																	span.product-card__param-title Бренд
+																	span.product-card__param-value.product-card__param-value_brand VIATTO
+
+																span.product-card__param
+																	span.product-card__param-title Страна
+																	span.product-card__param-value Италия
+
+															span.product-card__price-row
+																b.product-card__price 3 540 руб.
+
+															span.product-card__buttons
+																button.product-card__button.product-card__add-to-cart.simple-button В корзину
+																button.product-card__button.product-card__add-to-favorites
+																	svg(role="img" width="17px" height="15px")
+																		use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+																button.product-card__button.product-card__add-to-compare
+																	svg(role="img" width="15px" height="14px")
+																		use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+													a(href="#").product-card
+														span.product-card__thumb.product-card__thumb_none
+															svg(role="img")
+																use(xlink:href="/static/images/sprite.svg#no_photo")
+
+														span.product-card__labels
+															span.product-card__label.product-card__label_blue Хит
+															
+														span.product-card__info
+															span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+															span.product-card__params
+																span.product-card__param
+																	span.product-card__param-title Бренд
+																	span.product-card__param-value.product-card__param-value_brand VIATTO
+
+																span.product-card__param
+																	span.product-card__param-title Страна
+																	span.product-card__param-value Италия
+
+															span.product-card__price-row
+																b.product-card__price 3 540 руб.
+
+															span.product-card__buttons
+																button.product-card__button.product-card__add-to-cart.simple-button В корзину
+																button.product-card__button.product-card__add-to-favorites
+																	svg(role="img" width="17px" height="15px")
+																		use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+																button.product-card__button.product-card__add-to-compare
+																	svg(role="img" width="15px" height="14px")
+																		use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+
+
+										.col-12
+											.compare-component__params-wrapper
+												.compare-component__compare-table.compare-table
+													a.compare-table__title(href="#compare-table-1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="compare-table-1") Группа характеристик развернутая
+													.compare-table__body.collapse.show(id="compare-table-1")
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 1
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 2
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 2
+																	.compare-table__row-item значение 3
+																	.compare-table__row-item значение 4
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 3
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 4
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 2
+																	.compare-table__row-item значение 3
+																	.compare-table__row-item значение 4
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 5
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 1
+
+
+											.compare-component__params-wrapper
+												.compare-component__compare-table.compare-table
+													a.compare-table__title.collapsed(href="#compare-table-2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="compare-table-2") Группа характеристик скрытая
+													.compare-table__body.collapse(id="compare-table-2")
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 1
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 2
+																	.compare-table__row-item значение 3
+																	.compare-table__row-item значение 4
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 2
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 2
+																	.compare-table__row-item значение 3
+																	.compare-table__row-item значение 4
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 3
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 2
+																	.compare-table__row-item значение 3
+																	.compare-table__row-item значение 4
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 4
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 2
+																	.compare-table__row-item значение 3
+																	.compare-table__row-item значение 4
+
+														.compare-table__row.clearfix
+															.compare-table__row-title Характеристика 5
+															.compare-table__row-wrapper
+																.compare-table__fixed-container
+																	.compare-table__row-item значение 1
+																	.compare-table__row-item значение 2
+																	.compare-table__row-item значение 3
+																	.compare-table__row-item значение 4
+																	
+								.notify
+									.notify-body
+										svg.notify-icon(role="img")
+											use(xlink:href="/static/images/sprite.svg#cart-icon")
+										.notify-text
+											p.notify-title Нет товаров для сравнения
+											p.notify-desc Для добавления товаров в сравниваемые перейдите в каталог
+									
+									.notify-button.simple-button(href="#") Перейти в каталог
+					
+
+
+
+
+
+
+

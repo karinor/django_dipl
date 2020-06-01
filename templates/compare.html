@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="breadcrumbs">
+					<ul>
+						<li><a href="/">Главная</a></li>
+						<li> <span>Сравнение товаров</span></li>
+					</ul>
+				</div>
+				<p class="page__title">Сравнение товаров</p>
+				<div class="compare-component">
+					<div class="row">
+						<div class="col-12">
+							{% if products %}
+								<div class="compare-component__main">
+									<div class="row">
+										<div class="col-12 col-lg-3">
+											<div class="compare-component__controlls">
+												<label class="compare-component__toggle-button toggle-button show-different">
+													<input class="toggle-button__input" type="checkbox"/><span class="toggle-button__custom-button"></span><span class="toggle-button__text">Только различающиеся параметры</span>
+												</label>
+											</div>
+										</div>
+										<div class="col-12 col-lg-9">
+											<div class="compare-component__product-scroller-wrapper">
+												<div class="compare-component__product-scroller">
+                                                {% with products.get as products %}
+													{% for product in products %}
+														{% include 'compare_object.html' with product=product %}
+													{% endfor %}
+                                                {% endwith %}
+												</div>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="compare-component__params-wrapper">
+												{% include 'compare_table.html' with products=products %}
+											</div>
+										</div>
+									</div>
+								</div>
+							{% else %}
+								{% include 'compare_empty.html' %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

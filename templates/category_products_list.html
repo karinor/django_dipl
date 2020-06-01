@@ -1,0 +1,304 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+{% with object_list|first as product_for_category %}
+<div class="page">
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div class="breadcrumbs">
+				<ul>
+					<li><a href="/">Главная</a></li>
+					<li><a href="/">Каталог</a></li>
+					<li><span>{{ product_for_category.category }}</span></li>
+				</ul>
+			</div>
+			<p class="page__title">{{ product_for_category.category }}</p>
+		</div>
+		<div class="col-12 col-xl-3"><span class="mobile-filters-trigger simple-button d-xl-none">Фильтры</span>
+			<noindex>
+				<div class="filters">
+					<div class="filters__mobile-wrapper">
+						<form class="filters__form" method="GET" action=""><a class="filters__counter" href="">
+								<button class="filters__counter-button" type="submit" value="Показать"></button></a>
+
+								{% comment %} Подкатегории {% endcomment %}
+							{% if product_for_category.category.childs_exists %}
+								<div class="filter-block"><a class="filter-block__header" href="#filter-block-0" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block-0">Подкатегории</a>
+									<div class="filter-block__body collapse show" id="filter-block-0">
+										<div class="filter-block__wrapper">
+											<!-- <input class="filter-block__search-field filter-block__text-input" type="text" placeholder="Поиск"/> -->
+											<div class="filter-block__scroll-content">
+												<div class="filter-block__group">
+													<!-- .custom-control.custom-checkbox-->
+													<!-- 	input.custom-control-input(type="checkbox" id="customControlInline")-->
+													<!-- 	label.custom-control-label(for="customControlInline") Remember my preference-->
+													{% for child in product_for_category.category.get_childs %}
+														<a class="filter-block__category-link" href="{{ child.get_absolute_url }}">{{ child.title }}</a>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endif %}	
+								{% comment %} Цена {% endcomment %}
+							<div class="filter-block"><a class="filter-block__header" href="#filter-block_1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block_1">Цена</a>
+								<div class="filter-block__body collapse show" id="filter-block_1">
+									<div class="filter-block__wrapper">
+										<div class="range-slider-field">
+											<div class="range-slider-field__inputs">
+												<input class="range-slider-field__min-price filter-block__text-input" name="price-min" type="text" value="0"/>
+												<input class="range-slider-field__max-price filter-block__text-input" name="price-max" type="text" value="{{ filter_price.price__max }}"/>
+											</div>
+											<input class="range-slider-field__slider" type="text" id="price_range-slider-field_01" data-type="double" data-min="0" data-max="{{ filter_price.price__max }}" data-from="0" data-to="{{ filter_price.price__max }}" value=""/>
+										</div>
+									</div>
+								</div>
+							</div>
+								{% comment %} булево {% endcomment %}
+							{% comment %} <div class="filter-block"><a class="filter-block__header" href="#filter-block-2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block-2">Хит продаж</a>
+								<div class="filter-block__body collapse show" id="filter-block-2">
+									<div class="filter-block__wrapper">
+										<div class="filter-block__scroll-content">
+											<div class="filter-group">
+												<div class="custom-control custom-radio">
+													<input class="custom-control-input" type="radio" id="customRadio1" name="customRadio" checked="checked"/>
+													<label class="custom-control-label" for="customRadio1">Неактивная</label>
+												</div>
+												<div class="custom-control custom-radio">
+													<input class="custom-control-input" type="radio" id="customRadio2" name="customRadio"/>
+													<label class="custom-control-label" for="customRadio2">Активная</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> {% endcomment %}
+
+								{% comment %} цвета {% endcomment %}
+							{% comment %} <div class="filter-block"><a class="filter-block__header" href="#filter-block-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="filter-block-3">Фильтр выбора цвета</a>
+								<div class="filter-block__body collapse show" id="filter-block-3">
+									<div class="filter-block__wrapper">
+										<label class="color-checkbox color-checkbox_white-color" for="color-1">
+											<input type="checkbox" name="color" id="color-1" checked="checked"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #ffffff;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-2">
+											<input type="checkbox" name="color" id="color-2"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #0275d8;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-3">
+											<input type="checkbox" name="color" id="color-3"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #5cb85c;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-4">
+											<input type="checkbox" name="color" id="color-4"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #5bc0de;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-5">
+											<input type="checkbox" name="color" id="color-5"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #f0ad4e;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-6">
+											<input type="checkbox" name="color" id="color-6"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #d9534f;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-7">
+											<input type="checkbox" name="color" id="color-7"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #ffd506;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-6">
+											<input type="checkbox" name="color" id="color-6"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #d9534f;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+										<label class="color-checkbox" for="color-7">
+											<input type="checkbox" name="color" id="color-7"/>
+											<s class="color-checkbox__new-checkbox" style="background-color: #ffd506;">
+												<svg role="img" width="11px" height="7px">
+													<use xlink:href="/static/images/sprite.svg#checkbox-arrow"></use>
+												</svg>
+											</s>
+										</label>
+									</div>
+								</div>
+							</div> {% endcomment %}
+								{% comment %} чекбоксы {% endcomment %}
+							{% if filter_brands %}
+								<div class="filter-block"><a class="filter-block__header collapsed" href="#filter-block_2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-block_2">Брэнд</a>
+									<div class="filter-block__body collapse" id="filter-block_2">
+										<div class="filter-block__wrapper">
+											<div class="filter-block__scroll-content">
+												<div class="filter-group">
+													{% for brand in filter_brands %}
+														<div class="custom-control custom-checkbox">
+															<input class="custom-control-input" type="checkbox" id="brandCheck{{ forloop.counter }}" name="brand{{ brand.title }}"/>
+															<label class="custom-control-label" for="brandCheck{{ forloop.counter }}">{{ brand.title }}</label>
+														</div>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endif %}
+
+							{% if filter_countryes %}
+								<div class="filter-block"><a class="filter-block__header collapsed" href="#filter-block_3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-block_3">Страна</a>
+									<div class="filter-block__body collapse" id="filter-block_3">
+										<div class="filter-block__wrapper">
+											<div class="filter-block__scroll-content">
+												<div class="filter-group">
+													{% for country in filter_countryes %}
+														<div class="custom-control custom-checkbox">
+															<input class="custom-control-input" type="checkbox" id="{{ country.title }}" name="country{{ country.title }}"/>
+															<label class="custom-control-label" for="{{ country.title }}">{{ country.title }}</label>
+														</div>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endif %}
+
+							{% for key, field in filter_fields.items %}
+								<div class="filter-block"><a class="filter-block__header collapsed" href="#filter-block-{{ forloop.counter }}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-block-{{ forloop.counter }}">{{ key }}</a>
+									<div class="filter-block__body collapse" id="filter-block-{{ forloop.counter }}">
+										<div class="filter-block__wrapper">
+											<div class="filter-block__scroll-content">
+												<div class="filter-group">
+													{% for value in field %}
+														<div class="custom-control custom-checkbox">
+															<input class="custom-control-input" type="checkbox" id="fieldCheck{{ key }}{{ forloop.counter }}" name="field{{ key }}" value="{{ value }}"/>
+															<label class="custom-control-label" for="fieldCheck{{ key }}{{ forloop.counter }}">{{ value }}</label>
+														</div>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+							<div class="filters__footer">
+									<p class="filters__footer-result"></p>
+								<div class="filters__footer-buttons">
+									<input class="filters__submit simple-button" type="submit" value="Показать"/>
+									<input class="filters__reset" id="reset-filter" type="reset" value="Сбросить"/>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="filters__mobile-footer d-xl-none">
+							<p class="filters__mobile-result"></p>
+						<div class="filters__mobile-controllers">
+							<button class="filters__mobile-submit simple-button">Показать</button>
+							<button class="filters__mobile-reset">Сбросить</button>
+						</div>
+					</div>
+				</div>
+			</noindex>
+		</div>
+		<div class="col-12 col-xl-9">
+			<form class="sort-parameters" action="">
+				<div class="sort-parameters__order-by">Сортировать по:
+					<select name="sort">
+						<option value="default">умолчанию</option>
+						<option value="price_up">цене ↑</option>
+						<option value="price_down">цене ↓</option>
+						<option value="title_up">названию ↑</option>
+						<option value="title_down">названию ↓</option>
+					</select>
+				</div>
+				<div class="sort-parameters__layout-types">
+					<button class="active" data-url="/" type="button" data-type="tile">
+						<svg role="img" width="14px" height="14px">
+							<use xlink:href="{% static 'images/sprite.svg' %}#grid-three-up"></use>
+						</svg>
+					</button>
+					<button data-url="/" type="button" data-type="wide">
+						<svg role="img" width="16px" height="14px">
+							<use xlink:href="{% static 'images/sprite.svg' %}#list"></use>
+						</svg>
+					</button>
+				</div>
+			</form>
+			<div class="row">
+				{% for product in object_list %}
+					<div class="col-12 col-sm-6 col-lg-4">
+						{% include 'product_list_object.html' with product=product %}
+					</div>
+				{% endfor %}
+				{% include 'ajax_product_list_paginator.html' with page=page %}
+			</div>
+		</div>
+	</div>
+</div>
+<section class="seo-scroller">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<div class="seo-scroller__seo-images"><img src="{% static 'images/seo-img1.jpg' %}" alt="img"/></div>
+			</div>
+			<div class="col-12 col-lg-6">
+				<div class="seo-scroller__seo-text">
+					<div class="content-text">
+						<h1>H1. Пример заголовка SEO текста в две строки</h1>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h2>H2. Пример подзаголовка второго уровня типовой текстовой страницы в две строки или более</h2>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</div>
+{% endwith %}
+{% endblock %}

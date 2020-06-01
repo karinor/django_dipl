@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+<div class="container">
+<div class="row">
+	<div class="col-12">
+		<div class="breadcrumbs">
+			<ul>
+				<li><a href="/">Главная</a></li>
+				<li><a href="{% url 'catalog:CategoryList' %}">Каталог</a></li>
+				<li><a href="{% url 'catalog:CategoryDetails' slug=object.category.slug %}">{{ object.category.title }}</a></li>
+				<li> <span>{{ object.title }}</span></li>
+			</ul>
+		</div><a class="back-to-catalog" href="{% url 'catalog:CategoryDetails' slug=object.category.slug %}">
+			<svg role="img" width="8px" height="5px">
+				<use xlink:href="/static/images/sprite.svg#arrow-left"></use>
+			</svg>Назад к списку товаров</a>
+		<div class="product">
+			<div class="product__top-info" itemscope="" itemtype="http://schema.org/Product">
+				<div class="row">
+					<div class="col-12 col-lg-6">
+						<!-- a.product__photo(href="/static/images/product3.jpg" data-fancybox="photo")-->
+						<!-- 	img(src="/static/images/product3.jpg" alt="product-photo")-->
+						<!-- 	.product__labels-->
+						<!-- 		.product__label.product__label_green Новинка-->
+						<!-- 		// .product__label.product__label_yellow Скидка-->
+						<!-- 		// .product__label.product__label_blue Хит-->
+						<!-- .product__photo.product__photo_none-->
+						<!-- 	svg(role="img" width="80px" height="80px")-->
+						<!-- 		use(xlink:href="/static/images/sprite.svg#no_photo")-->
+						<!-- 	.product__labels-->
+						<!-- 		.product__label.product__label_green Новинка-->
+						<!-- 		// .product__label.product__label_yellow Скидка-->
+						<!-- 		// .product__label.product__label_blue Хит-->
+						<div class="product-slider">
+							<div class="product__labels">
+								{% if object.is_new %}
+								<div class="product__label product__label_green">Новинка</div>
+								{% endif %}
+								{% if object.discount_multiplier < 1.0 %}							
+								<div class="product__label product__label_yellow">Скидка</div>
+								{% endif %}
+								{% if object.bestseller %}
+								<div class="product__label product__label_blue">Хит</div>
+								{% endif %}
+							</div>
+							<div class="product-slider__container">
+								<a class="product-slider__container-slide item-thumbnail" href="{{ MEDIA_URL }}{{ object.image }}" data-fancybox="gallery"><img itemprop="image" src="{{ MEDIA_URL }}{{ object.image }}" alt=""/></a>
+								{% for image in object.get_images %}
+									<a class="product-slider__container-slide item-thumbnail" href="{{ MEDIA_URL }}{{ image.image }}" data-fancybox="gallery"><img itemprop="image" src="{{ MEDIA_URL }}{{ image.image }}" alt=""/></a>
+								{% endfor %}
+							</div>
+							<div class="product-slider__carousel">
+								<div class="product-slider__carousel-item"><img src="{{ MEDIA_URL }}{{ object.image }}" alt="img"/></div>
+								{% for image in object.get_images %}
+									<div class="product-slider__carousel-item"><img src="{{ MEDIA_URL }}{{ image.image }}" alt="img"/></div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-6">
+						<form class="product-form" action="/" method="POST">
+							<p class="page__title product-form__title" itemprop="name">{{ object.title }}</p>
+							<div class="product__attrs">
+								<div class="product__attrs-col">
+									<div class="product__attrs-item">Артикул: {{ object.vendor_code }}</div>
+									<div class="product__attrs-item">Код: {{ object.code }}</div>
+								</div>
+								<div class="product__attrs-col">
+									{% if object.country is not None %}
+									<div class="product__attrs-country">
+										<div class="product__attrs-country-flag"><img src="{{ MEDIA_URL }}{{ object.country.svg_flag }}" alt="img"/></div><b class="product__attrs-country-name">{{ object.country.title }}</b>
+									</div>
+									{% endif %}
+									{% if object.brand is not None %}
+									<div class="product__attrs-brand"><span class="product__attrs-brand-title">Бренд:</span><b class="product__attrs-brand-value">{{ object.brand.title }}</b></div>
+									{% endif %}
+								</div>
+							</div><a class="product-form__show-params" href="#">Все характеристики</a>
+							{% if product.price != 0 %}
+							<div class="product-form__price-table-wrapper">
+								<div class="product-form__price-table" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+									<meta itemprop="price" content="{{ object.price }}"/>
+									<meta itemprop="priceCurrency" content="руб."/>
+									{% if object.count > 0 %}
+										<link itemprop="availability" href="http://schema.org/InStock"/>
+									{% else %}
+										<link itemprop="availability" href="http://schema.org/OutOfStock"/>
+									{% endif %}
+									<div class="product-form__price-table-row">
+										<div class="product-form__price-table-col product-form__price-table-col_title">Цена РРЦ</div>
+										<div class="product-form__price-table-col product-form__price-table-col_price">{{ object.get_discount_price }}</div>
+										<div class="product-form__price-table-col product-form__price-table-col_discount"></div>
+										<div class="product-form__price-table-col product-form__price-table-col_condition">(при заказе до 2 000 руб.)</div>
+									</div>
+									<div class="product-form__price-table-row">
+										<div class="product-form__price-table-col product-form__price-table-col_title">Цена Опт</div>
+										<div class="product-form__price-table-col product-form__price-table-col_price">{{ object.get_wholesale_price }}</div>
+										<div class="product-form__price-table-col product-form__price-table-col_discount"><span>- 5%</span></div>
+										<div class="product-form__price-table-col product-form__price-table-col_condition">(при заказе от 2 000 до 12 000 руб.)</div>
+									</div>
+									<div class="product-form__price-table-row">
+										<div class="product-form__price-table-col product-form__price-table-col_title">Цена VIP</div>
+										<div class="product-form__price-table-col product-form__price-table-col_price">{{ object.get_vip_price }}</div>
+										<div class="product-form__price-table-col product-form__price-table-col_discount"><span>- 10%</span></div>
+										<div class="product-form__price-table-col product-form__price-table-col_condition">(при заказе свыше 12 000 руб.)</div>
+									</div>
+								</div>
+							</div>
+							{% else %}
+							{% endif %}
+							<div class="product-form__cart-controls">
+							{% if product.price != 0 %}
+								<div class="product-amount">
+									<div class="product-amount__button product-amount__button_minus">
+										<svg role="img" width="6px" height="10px">
+											<use xlink:href="{% static 'images/sprite.svg' %}#amount-arrow"></use>
+										</svg>
+									</div>
+									<div class="product-amount__field">
+										<input type="number" name="product-count" min="1" max="100" value="1"/>
+									</div>
+									<div class="product-amount__button product-amount__button_plus">
+										<svg role="img" width="6px" height="10px">
+											<use xlink:href="{% static 'images/sprite.svg' %}#amount-arrow"></use>
+										</svg>
+									</div>
+								</div>
+								<div class="product-form__add">
+									<button class="product-form__add-button add-to-cart simple-button" data-add="action=cart&add={{ product.pk }}" data-pk="{{ product.pk }}" type="submit">В корзину</button>
+									<div class="product-form__add-notification"><span class="product-form__add-notification-title">Товар добавлен в корзину</span><a class="product-form__add-notification-button simple-button" href="#">Перейти в корзину</a></div>
+								</div>
+								<!-- b.product-form__price.product-form__price_current Цена по запросу-->
+								<!-- button.product-form__get-price.empty-button(type="submit") Узнать цену-->
+							{% else %}
+								<b class="product-form__price product-form__price_current">Цена по запросу</b>
+								<button class="product-form__get-price empty-button" type="button" data-toggle="modal" data-target="#request-price" data-product-id="436">Узнать цену</button>
+							{% endif %}
+							</div>
+							<div class="product-form__buttons-wrapper">
+								<button class="product-form__button product-form__button_add-to-favorites active" data-add="action=favorites&add={{ product.pk }}" type="button">
+									<svg role="img" width="16px" height="14px">
+										<use xlink:href="{% static 'images/sprite.svg' %}#heart-icon"></use>
+									</svg>Добавить в избранное
+								</button>
+								<button class="product-form__button product-form__button_compare" data-add="action=compare&add={{ product.pk }}" type="button">
+									<svg role="img" width="15px" height="14px">
+										<use xlink:href="{% static 'images/sprite.svg' %}#compare-icon"></use>
+									</svg>Добавить к сравнению
+								</button>
+							</div>
+						</form>
+					</div>
+					<div class="col-12">
+						<div class="product__information">
+							<div class="row">
+								<div class="col-12 col-lg-9">
+									<div class="product__desc"><b class="product__desc-title">Описание и характеристики</b>
+										<div class="product__desc-text content-text">
+											{% if object.about is not None %}
+											<p>{{ object.about }}</p>
+											{% endif %}
+										</div>
+									</div>
+									<div class="product__props">
+										{% for field in object.get_fields %}
+										<div class="product__props-row">
+											<div class="product__props-title">{{ field.field_type.title }}</div>
+											<div class="product__props-value">{{ field.value }}</div>
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+								<div class="col-12 col-lg-3">
+									<div class="conditions">
+										<div class="conditions__block">
+											<div class="conditions__block-title">
+												<svg role="img" width="26px" height="19px">
+													<use xlink:href="{% static 'images/sprite.svg' %}#wallet"></use>
+												</svg>Оплата
+											</div>
+											<p class="conditions__block-text">Краткое описание о способах оплаты. Информация об оптовых и розничных ценах. Минимальнаы сумма заказа.</p>
+										</div>
+										<div class="conditions__block">
+											<div class="conditions__block-title">
+												<svg role="img" width="26px" height="19px">
+													<use xlink:href="{% static 'images/sprite.svg' %}#delivery"></use>
+												</svg>Доставка
+											</div>
+											<p class="conditions__block-text">Краткое описание о способах и сроках доставки. Информация о бесплатной доставке. Регионы доставки</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% with object.get_best_offers as best_offers %}
+						{% if best_offers.exists %}
+						<div class="extra-products-slider">
+							<div class="extra-products-slider__slider-header"><b class="extra-products-slider__slider-header-title">Лучшие предложения</b>
+								<div class="extra-products-slider__nav-buttons"><a class="extra-products-slider__nav-button extra-products-slider__nav-button_prev" href="#">
+										<svg role="img" width="6px" height="9px">
+											<use xlink:href="{% static 'images/sprite.svg' %}#small-arrow"></use>
+										</svg></a><a class="extra-products-slider__nav-button extra-products-slider__nav-button_next" href="#">
+										<svg role="img" width="6px" height="9px">
+											<use xlink:href="{% static 'images/sprite.svg' %}#small-arrow"></use>
+										</svg></a></div>
+							</div>
+							<div class="extra-products-slider__slider-body">
+								{% for product in best_offers %}
+									{% include 'product_list_object.html' with product=product %}
+								{% endfor %}
+							</div>
+						</div>
+						{% endif %}
+						{% endwith %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>		  
+{% endblock content %}

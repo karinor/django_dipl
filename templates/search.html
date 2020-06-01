@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs" itemprop="http://schema.org/breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                    <ul>
+                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                            <a href="/" title="Главная" itemprop="url"><span itemprop="name">Главная</span></a>
+                            <meta itemprop="position" content="1">
+                        </li>
+                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                            <span itemprop="name">Каталог</span>
+                            <meta itemprop="position" content="2">
+                        </li>
+                    </ul>
+                </div>							
+            </div>                  
+        </div>                 
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="page__title">Поиск</p>         
+                <form class="search-form search-form_catalog" action="{% url 'catalog:CategoryList' %}" method="post">
+                    {% csrf_token %}
+                    <input class="search-form__input q_main" type="text" name="q" value="{{ text }}" size="40">
+                    <button class="search-form__button" type="submit">
+                        <svg role="img" width="15px" height="16px">
+                        <use xlink:href="{% static '/images/sprite.svg' %}#search"></use>
+                        </svg>
+                    </button>
+                    <input type="hidden" name="how" value="r">
+                </form>
+                <div class="catalog-container">
+                <div class="row">
+                    {% for product in page.object_list %}
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                            {% include "product_list_object.html" with product=product %}
+                        </div>
+                    {% endfor %}
+                    {% include "ajax_product_list_paginator.html" with page=page %}
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

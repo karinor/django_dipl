@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<section class="slider-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{% if slides %}		
+				<div class="bootslider carousel slide" id="bootslider" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li class="active" data-target="#bootslider" data-slide-to="0"></li>
+						{% for slide in slides|slice:"1:" %}
+							<li data-target="#bootslider" data-slide-to="{{ forloop.counter1 }}"></li>
+						{% endfor %}
+					</ol>
+					<div class="carousel-inner">
+						{% comment %} <a class="carousel-item active" href="yandex.ru" style="background-image: url({{ MEDIA_URL }}{{ slides|first.image }});">
+							<div class="bootslider__wrapper"></div></a> {% endcomment %}
+						{% for slide in slides|slice:"1:" %}
+						<div class="carousel-item" style="background-image: url({{ MEDIA_URL }}{{ slide.image }});">
+							<div class="bootslider__wrapper"></div>
+						</div>
+						{% endfor %}
+					</div>
+					<a class="carousel-control-prev" href="#bootslider" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true">
+							<svg role="img" width="11px" height="20px">
+								<use xlink:href="/static/images/sprite.svg#slider-arrow"></use>
+							</svg></span><span class="sr-only">prev</span></a>
+							<a class="carousel-control-next" href="#bootslider" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true">
+							<svg role="img" width="11px" height="20px">
+								<use xlink:href="/static/images/sprite.svg#slider-arrow"></use>
+							</svg></span><span class="sr-only">Next</span></a>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>
+<section class="index-catalog-section">
+	<div class="container"> 
+		<div class="row">
+			<div class="col-12"><b class="index-catalog-section__title">Каталог товаров</b>
+				<div class="index-catalog-section__items-wrapper">
+					<div class="row">
+						{% if catalog.len > 12 %}
+							{% for category in catalog|slice:":12" %}
+								<div class="col-12 col-sm-6 col-md-4 col-xl-3">
+									<a class="category-block" href="{{ category.get_absolute_url }}">
+										<span class="category-block__icon">
+											<svg role="img">
+												<use xlink:href="{% static 'images/sprite.svg' %}#{{ category.svg }}"></use>
+											</svg>
+										</span>
+										<b class="category-block__title">{{ category.title }}</b>
+									</a>
+								</div>
+							{% endfor %}
+							<div class="col-12 col-sm-6 col-md-4 col-xl-3"><a class="category-block category-block_all" href="#"><span class="category-block__icon">
+										<svg role="img">
+											<use xlink:href="{% static 'images/sprite.svg' %}#exit-icon"></use>
+										</svg></span><b class="category-block__title">Смотреть весь каталог</b></a></div>
+						{% else %}
+							{% for category in catalog %}
+									<div class="col-12 col-sm-6 col-md-4 col-xl-3">
+										<a class="category-block" href="{{ category.get_absolute_url }}">
+											<span class="category-block__icon">
+												<svg role="img">
+													<use xlink:href="{% static 'images/sprite.svg' %}#{{ category.svg }}"></use>
+												</svg>
+											</span>
+											<b class="category-block__title">{{ category.title }}</b>
+										</a>
+									</div>
+								{% endfor %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% with best_offers.bestseller.exists as bestseller_exists %}
+{% with best_offers.discount.exists as discount_exists %}
+{% with best_offers.new as new_exists %}
+{% if bestseller_exists or discount_exists or new_exists %}
+<section class="best-products">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="best-products__header">
+					<div class="best-products__header-wrapper"><b class="best-products__header-title">Лучшие предложения</b>
+						<ul class="best-products__buttons nav" id="myTab" role="tablist">
+							{% if discount_exists %}
+								<li><a class="active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Скидки</a></li>
+							{% endif %}
+							{% if new_exists %}
+								{% if discount_exists %}
+									<li><a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Новинки</a></li>
+								{% else %}
+									<li><a class="active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Новинки</a></li>
+								{% endif %}
+							{% endif %}
+							{% if bestseller_exists %}
+								{% if discount_exists or new_exists %}
+									<li><a id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Хиты продаж</a></li>
+								{% else %}
+									<li><a class="active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true">Хиты продаж</a></li>
+								{% endif %}
+							{% endif %}
+						</ul>
+					</div><a class="best-products__catalog-link d-none d-md-inline-block" href="#"></a>
+				</div>
+				<div class="best-products__body">
+					<div class="tab-content" id="myTabContent">
+						{% if discount_exists %}
+							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+								<div class="row">
+									{% for product in best_offers.discount %}
+										<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+											{% include 'product_list_object.html' with product=product %}
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+						{% endif %}
+						{% if new_exists %}
+							{% if discount_exists %}
+								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+									<div class="row">
+										{% for product in best_offers.new %}
+											<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+												{% include 'product_list_object.html' with product=product %}
+											</div>
+										{% endfor %}
+									</div>
+								</div>
+							{% else %}
+								<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+									<div class="row">
+										{% for product in best_offers.new %}
+											<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+												{% include 'product_list_object.html' with product=product %}
+											</div>
+										{% endfor %}
+									</div>
+								</div>
+							{% endif %}
+						{% endif %}
+						{% if bestseller_exists %}
+							{% if discount_exists or new_exists %}
+							<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+								<div class="row">
+									{% for product in best_offers.bestseller %}
+										<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+											{% include 'product_list_object.html' with product=product %}
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+							{% else %}
+							<div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+								<div class="row">
+									{% for product in best_offers.bestseller %}
+										<div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+											{% include 'product_list_object.html' with product=product %}
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+							{% endif %}
+						{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}
+{% endwith %}
+{% endwith %}
+{% endwith %}
+<section class="section-cycle">
+	<div class="container">
+		<div class="row">
+			<div class="col-12"><b class="section-cycle__title">Мы выполняем полный цикл услуг</b></div>
+			<div class="col-12 col-sm-6 col-lg-4">
+				<div class="cycle-block">
+					<div class="cycle-block__image"><img src="/static/images/cycle-image1.jpg" alt="cycle-image"/></div>
+					<div class="cycle-block__info">
+						<div class="cycle-block__info-number">1</div>
+						<div class="cycle-block__info-title">Планировка</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6 col-lg-4">
+				<div class="cycle-block">
+					<div class="cycle-block__image"><img src="/static/images/cycle-image2.jpg" alt="cycle-image"/></div>
+					<div class="cycle-block__info">
+						<div class="cycle-block__info-number">2</div>
+						<div class="cycle-block__info-title">Подбор оборудования</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6 col-lg-4">
+				<div class="cycle-block">
+					<div class="cycle-block__image"><img src="/static/images/cycle-image3.jpg" alt="cycle-image"/></div>
+					<div class="cycle-block__info">
+						<div class="cycle-block__info-number">3</div>
+						<div class="cycle-block__info-title">Монтаж и пусконаладка</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="seo-scroller seo-scroller_index-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<div class="seo-scroller__seo-images"><img src="/static/images/seo-img1.jpg" alt="img"/>
+				<img src="/static/images/seo-img2.jpg" alt="img"/>
+				<img src="/static/images/seo-img3.jpg" alt="img"/>
+				</div>
+			</div>
+			<div class="col-12 col-lg-6">
+				<div class="seo-scroller__seo-text">
+					<div class="content-text">
+						<h1>H1. Пример заголовка SEO текста в две строки</h1>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h2>H2. Пример подзаголовка второго уровня типовой текстовой страницы в две строки или более</h2>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+						<h3>H3. Пример подзаголовка третьего уровня типовой страницы</h3>
+						<p>В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.</p>
+						<p>Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+	
+				
+		

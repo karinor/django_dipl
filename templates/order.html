@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div class="page">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="breadcrumbs">
+						<ul>
+							<li><a href="/">Главная</a></li>
+							<li> <span>Оформление заказа</span></li>
+						</ul>
+					</div>
+					<p class="page__title">Оформление заказа</p>
+				</div>
+				<div class="col-12 col-xl-8">
+
+					<form method="POST" class="checkout-form">
+						{% csrf_token %}
+						<div class="checkout-form__part">
+							<div class="checkout-form__part-title">
+								<span class="checkout-form__part-title-number">1.</span><b class="checkout-form__part-title-text">Данные получателя</b>
+							</div>
+							<div class="checkout-form__part-body">
+								<div class="checkout-group required">
+									<label class="checkout-group__label" for="{{ form.fullname.id_for_label }}">{{ form.fullname.label }}</label>
+									{{ form.fullname }}
+									<div class="checkout-group__message valid-feedback">Готово!</div>
+								</div>
+								<div class="checkout-group required">
+									<label class="checkout-group__label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+									{{ form.email }}
+									<div class="checkout-group__message invalid-feedback">Обязательное поле для заполнение</div>
+								</div>
+								<div class="checkout-group required">
+									<label class="checkout-group__label" for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+									{{ form.phone }}
+									<div class="checkout-group__message valid-feedback">Готово!</div>
+								</div>
+								<div class="custom-control custom-checkbox checkout-form__toggle-area-trigger collapsed" href="#toggle-area-1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="toggle-area-1">
+									<input class="custom-control-input" type="checkbox" name="legal" id="customControlInline"/>
+									<label class="custom-control-label" for="customControlInline">Юр. лицо</label>
+								</div>
+								<div class="checkout-form__toggle-area collapse" id="toggle-area-1">
+									<div class="checkout-form__toggle-area-wrapper">
+										<div class="checkout-group required">
+											<label class="checkout-group__label" for="{{ form.entity_name.id_for_label }}">{{ form.entity_name.label }}</label>
+											{{ form.entity_name }}
+											<div class="checkout-group__message valid-feedback">Готово!</div>
+										</div>
+										<div class="checkout-group required">
+											<label class="checkout-group__label" for="{{ form.entity_inn.id_for_label }}">{{ form.entity_inn.label }}</label>
+											{{ form.entity_inn }}
+											<div class="checkout-group__message invalid-feedback">Обязательное поле для заполнение</div>
+										</div>
+										<div class="checkout-group required">
+											<label class="checkout-group__label" for="{{ form.entity_kpp.id_for_label }}">{{ form.entity_kpp.label }}</label>
+											{{ form.entity_kpp }}
+											<div class="checkout-group__message valid-feedback">Готово!</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="checkout-form__part">
+							<div class="checkout-form__part-title"><span class="checkout-form__part-title-number">2.</span><b class="checkout-form__part-title-text">Способ доставки</b></div>
+							<div class="checkout-form__part-body">
+								<ul class="checkout-form__tab-buttons nav" id="myTab" role="tablist">
+									<li><a class="active" id="checkout-tab-1" data-toggle="tab" href="#checkout-tab-pane-1" role="tab" aria-controls="checkout-tab-pane-1" aria-selected="true">Самовывоз</a></li>
+									<li><a id="checkout-tab-2" data-toggle="tab" href="#checkout-tab-pane-2" role="tab" aria-controls="checkout-tab-pane-2" aria-selected="true">Транспортной компанией</a></li>
+								</ul>
+								<div class="checkout-form__tab-content tab-content" id="myTabContent">
+									<div class="tab-pane fade show active" id="checkout-tab-pane-1" role="tabpanel" aria-labelledby="checkout-tab-1">
+										<div class="checkout-form__courier-info">
+											<div class="checkout-form__courier-info-row"><span class="checkout-form__courier-info-title">Адрес магазина</span><span class="checkout-form__courier-info-value">г. Вологда, ул. Некрасова, д. 25</span></div>
+											<div class="checkout-form__courier-info-row"><span class="checkout-form__courier-info-title">Самовывоз возможен</span><span class="checkout-form__courier-info-value">30.04.2019</span></div>
+											<div class="checkout-form__courier-info-row"><span class="checkout-form__courier-info-title">Стоимость</span><span class="checkout-form__courier-info-value">Бесплатно</span></div>
+										</div>
+									</div>
+									<div class="tab-pane fade show" id="checkout-tab-pane-2" role="tabpanel" aria-labelledby="checkout-tab-2">
+										<div class="row">
+											<div class="col-12 col-md-6">
+												<div class="checkout-group required">
+													<label class="checkout-group__label" for="{{ form.postcode.id_for_label }}">{{ form.postcode.label }}</label>
+													{{ form.postcode }}
+													<div class="checkout-group__message valid-feedback">Готово!</div>
+												</div>
+												<div class="checkout-group">
+													<label class="checkout-group__label" for="{{ form.area.id_for_label }}">{{ form.area.label }}</label>
+													{{ form.area }}
+													<div class="checkout-group__message invalid-feedback">Обязательное поле для заполнения</div>
+												</div>
+												<div class="checkout-group required">													
+													<label class="checkout-group__label" for="{{ form.street.id_for_label }}">{{ form.street.label }}</label>
+													{{ form.street }}
+													<div class="checkout-group__message valid-feedback">Готово!</div>
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="checkout-group required">
+													<label class="checkout-group__label" for="{{ form.region.id_for_label }}">{{ form.region.label }}</label>
+													{{ form.region }}
+													<div class="checkout-group__message valid-feedback">Готово!</div>
+												</div>
+												<div class="checkout-group required">
+													<label class="checkout-group__label" for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+													{{ form.city }}
+													<div class="checkout-group__message valid-feedback">Готово!</div>
+												</div>
+												<div class="checkout-form__inputs-row">
+													<div class="checkout-group required">
+														<label class="checkout-group__label" for="{{ form.house.id_for_label }}">{{ form.house.label }}</label>
+														{{ form.house }}
+														<div class="checkout-group__message invalid-feedback">Обязательное поле для заполнение</div>
+													</div>
+													<div class="checkout-group">
+														<label class="checkout-group__label" for="{{ form.building.id_for_label }}">{{ form.building.label }}</label>
+														{{ form.building }}
+														<div class="checkout-group__message valid-feedback">Готово!</div>
+													</div>
+													<div class="checkout-group required">
+														<label class="checkout-group__label" for="{{ form.apartment.id_for_label }}">{{ form.apartment.label }}</label>
+														{{ form.apartment }}
+														<div class="checkout-group__message valid-feedback">Готово!</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="checkout-group">
+													<label class="checkout-group__label" for="{{ form.comment.id_for_label }}">{{ form.comment.label }}</label>
+													{{ form.comment }}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="checkout-form__part">
+							<div class="checkout-form__part-title"><span class="checkout-form__part-title-number">3.</span><b class="checkout-form__part-title-text">Способ оплаты</b></div>
+							<div class="checkout-form__part-body">
+								<div class="checkout-form__payment-types">
+									{% for value, name in form.payment_type.field.choices %}
+									<label class="payment-type" for="payment-{{ forloop.counter }}">
+										<input class="payment-type__input" type="radio" name="payment_type" id="payment-{{ forloop.counter }}" value="{{ value }}" checked="checked"/>
+										<span class="payment-type__new-checkbox">{{ name }}</span>
+										
+									</label>
+									{% endfor %}
+									<!-- <label class="payment-type" for="payment-1">
+										<input class="payment-type__input" type="radio" name="payment" id="payment-1" value="bank" checked="checked"/>
+										<span class="payment-type__new-checkbox">Банковской картой онлайн</span>
+									</label>
+									<label class="payment-type" for="payment-2">
+										<input class="payment-type__input" type="radio" name="payment" id="payment-2" value="bank" checked="checked"/><span class="payment-type__new-checkbox">Оплата по счету</span>
+									</label>
+									<label class="payment-type" for="payment-3">
+										<input class="payment-type__input" type="radio" name="payment" id="payment-3" value="bank" checked="checked"/><span class="payment-type__new-checkbox">Оплата при получении</span>
+									</label> -->
+								</div>
+							</div>
+						</div>
+						<div class="checkout-form__footer">
+							<div class="checkout-form__footer-policy">Нажимая «Оформить заказ» я соглашаюсь на <a href="#">обработку персональных данных</a></div>
+							<div class="checkout-form__footer-button">
+								<input class="simple-button checkout-form__footer-submit" type="submit" value="Оформить заказ"/><span class="checkout-form__footer-submit-error">Одно или несколько полей заполнены неправильно.</span>
+							</div>
+						</div>
+					</form> 
+				</div>
+				<div class="col-12 col-xl-4">
+					<div class="order-items">
+						<div class="order-items__header">Состав заказа</div>
+						<div class="order-items__body">
+							{% for product in cart.get %}
+								<div class="order-items__item"><span class="order-items__item-title">{{ product.title }}</span><span class="order-items__item-price">{{ product.count }} x {{ product.get_discount_price }} руб.</span></div>
+							{% endfor %}
+						</div>
+						<div class="order-items__delivery"><span class="order-items__delivery-title">Доставка</span><span class="order-items__delivery-value">Бесплатно</span></div>
+						<div class="order-items__total"><span class="order-items__total-title">Итого:</span><b class="order-items__total-value">{{ cart.get_total_price }} руб.</b></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

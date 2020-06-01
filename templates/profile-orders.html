@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="breadcrumbs">
+					<ul>
+						<li><a href="/">Главная</a></li>
+						<li> <span>Корзина</span></li>
+					</ul>
+				</div>
+				<p class="page__title">Корзина</p>
+			</div>
+			<div class="col-12 col-lg-4 col-xl-3">
+				<ul class="sidebar">
+					<li class="sidebar-item current-sidebar-item"><a class="sidebar-link" href="#">Мои заказы</a></li>
+					<li class="sidebar-item"><a class="sidebar-link" href="{% url 'account:ProfileData' %}">Личные данные</a></li>
+					<li class="sidebar-item"><a class="sidebar-link" href="{% url 'catalog:FavoritesDetails' %}">Избранные товары</a></li>
+					<li class="sidebar-item"><a class="sidebar-link" href="{% url 'account:logout' %}">Выход</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-lg-8 col-xl-9">
+				{% if orders_list %}
+				{% for order in orders_list %}
+					<div class="order-item">
+						<div class="order-item-head">
+							<p class="order-item-title">Заказ № {{ order.id }} от {{ order.date }}</p>
+							{% if order.status == 1 %}
+							<p class="order-item-status order-item-status_processing">В процессе</p>
+							{% elif order.status == 2 %}
+								<p class="order-item-status order-item-status_success">Выполнен</p>
+							{% else %}
+								<p class="order-item-status">Отменен</p>
+							{% endif %}
+						</div>
+						<div class="order-item-body">
+								<div class="order-item-products">
+									{% for product in order.products %}
+										<a class="order-item-product">
+											<span class="order-item-product__title">{{ product.product.title }}</span>
+											<span class="order-item-product__count">{{ product.count }} x <b>{{ product.product.get_discount_price }} руб.</b></span>
+										</a>
+									{% endfor %}
+								</div>
+							<p class="order-item-total">Итого: <span class="order-item-total__price">{{ order.total }} руб.</span></p>
+						</div>
+					</div>
+				{% endfor %}
+				{% else %}
+					<div class="notify">
+						<div class="notify-body">
+							<div class="notify-text">
+								<p class="notify-title">История заказов пуста</p>
+								<p class="notify-desc">Вы пока не совершили ни одного заказа</p>
+							</div>
+						</div><a class="notify-button simple-button" href="/">Перейти в каталог</a>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+		

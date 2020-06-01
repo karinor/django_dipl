@@ -1,0 +1,50 @@
+extends base.pug
+block append head
+	- var pageTitle = "Корзина"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li 
+								span Корзина
+								
+					p.page__title Корзина
+
+				.col-12.col-lg-4.col-xl-3
+					ul.sidebar
+						li.sidebar-item
+							a.sidebar-link(href="#") Мои заказы
+						li.sidebar-item.current-sidebar-item 
+							a.sidebar-link(href="#") Личные данные
+						li.sidebar-item
+							a.sidebar-link(href="#") Избранные товары
+						li.sidebar-item
+							a.sidebar-link(href="#") Выход
+							
+
+				.col-12.col-lg-8.col-xl-9
+					form.simple-form.needs-validation
+						b.simple-form-title Личные данные
+						.simple-form-group.required
+							label.simple-form-group__title(for="data-name") ФИО
+							input.simple-form-control.form-control(type="text" name="name" id="data-name" value="")
+							.simple-form__feedback.invalid-feedback Обязательное поле для заполнение
+
+						.simple-form-group.required
+							label.simple-form-group__title(for="data-phone") Телефон
+							input.simple-form-control.form-control(type="tel" name="phone" id="data-phone" value="")
+							.simple-form__feedback.invalid-feedback Обязательное поле для заполнение
+
+						.simple-form-group.required
+							label.simple-form-group__title(for="data-email") Email
+							input.simple-form-control.form-control(type="email" name="email" id="data-email" value="")
+							.simple-form__feedback.invalid-feedback Обязательное поле для заполнение
+							
+						input.simple-button.simple-form__submit(type="submit" value="Сохранить")

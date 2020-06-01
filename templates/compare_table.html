@@ -1,0 +1,19 @@
+{% load static %}
+<div class="compare-component__compare-table compare-table"><a class="compare-table__title" href="#compare-table-1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="compare-table-1">Характеристики</a>
+    <div class="compare-table__body collapse show" id="compare-table-1">
+        {% for field_type, values in products.get_formatted_data.items %}
+            <div class="compare-table__row clearfix">
+                <div class="compare-table__row-title">{{ field_type }}</div>
+                <div class="compare-table__row-wrapper">
+                    <div class="compare-table__fixed-container">
+                    {% for value in values %}
+                        <div class="compare-table__row-item">{{ value }}</div>
+{#                         data-pk="{{ pk }}"#}
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+ 

@@ -1,0 +1,76 @@
+extends base.pug
+block append head
+	- var pageTitle = "Кондиционеры"
+block content
+	section.conditioners_page.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs(itemscope="", itemtype="http://schema.org/BreadcrumbList")
+						ul
+							li(itemscope="", itemprop="itemListElement", itemtype="http://schema.org/ListItem")
+								a(href="/", itemprop="name") Главная
+								meta(itemprop="position", content="1")
+							li(itemscope="", itemprop="itemListElement", itemtype="http://schema.org/ListItem")
+								span(itemprop="name") Кондиционеры
+								meta(itemprop="position", content="2") 
+				.col-12
+					h1.page__title.page__title_center Цены на кондиционеры
+				.col-12.col-sm-6.col-lg-3
+					.brend-category-block(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.brend-category-block__title Кондиционеры "Ballu"
+						img.brend-category-block__thumb(src="/static/images/Ballu.jpg")
+						a.brend-category-block__button.simple-button Оставить заявку
+				.col-12.col-sm-6.col-lg-3
+					.conditioner(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.name Кондиционеры "Kentatsu"
+						img.conditioner_pic(src="/static/images/Kentatsu.jpg")
+						a.simple-button Оставить заявку
+				.col-12.col-sm-6.col-lg-3
+					.conditioner(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.name Кондиционеры "Midea"
+						img.conditioner_pic(src="/static/images/Midea.jpg")
+						a.simple-button Оставить заявку
+				.col-12.col-sm-6.col-lg-3
+					.conditioner(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.name Кондиционеры "Haier"
+						img.conditioner_pic(src="/static/images/Haier.jpg")
+						a.simple-button Оставить заявку
+				.col-12.col-sm-6.col-lg-3
+					.conditioner(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.name Кондиционеры "Panasonic"
+						img.conditioner_pic(src="/static/images/Panasonic.jpg")
+						a.simple-button Оставить заявку
+				.col-12.col-sm-6.col-lg-3
+					.conditioner(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.name Кондиционеры "Toshiba"
+						img.conditioner_pic(src="/static/images/Toshiba.jpg")
+						a.simple-button Оставить заявку
+				.col-12.col-sm-6.col-lg-3
+					.conditioner(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.name Кондиционеры "Mitsubishi"
+						img.conditioner_pic(src="/static/images/Mitsubishi.jpg")
+						a.simple-button Оставить заявку
+				.col-12.col-sm-6.col-lg-3
+					.conditioner(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.name Кондиционеры "Daikin"
+						img.conditioner_pic(src="/static/images/Daikin.jpg")
+						a.simple-button Оставить заявку
+
+				.col-12
+					p.page__title.page__title_center Услуги компании
+				.col-12.col-md-4
+					.brend-category-block.brend-category-block_service(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.brend-category-block__title Монтаж
+						img.brend-category-block__thumb(src="/static/images/Монтаж.jpg")
+						a.brend-category-block__button.simple-button Оставить заявку
+				.col-12.col-md-4
+					.brend-category-block.brend-category-block_service(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.brend-category-block__title Обслуживание
+						img.brend-category-block__thumb(src="/static/images/Обслуживание.jpg")
+						a.brend-category-block__button.simple-button Оставить заявку
+				.col-12.col-md-4
+					.brend-category-block.brend-category-block_service(href="#callback" data-toggle="modal" data-target="#request-price")
+						p.brend-category-block__title Ремонт
+						img.brend-category-block__thumb(src="/static/images/Ремонт.jpg")
+						a.brend-category-block__button.simple-button Оставить заявку

@@ -1,0 +1,920 @@
+block head
+	- var pageTitle
+
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		meta(charset="UTF-8")
+		title= pageTitle
+		link(rel='stylesheet', href='/static/css/vendors.min.css')
+		link(rel='stylesheet', href='/static/css/main.css')
+
+	body
+		a.filter-close
+			span.filter-close__button
+		
+		.mobile-menu
+			ul.mobile-menu__mobile-menu-catalog.mobile-menu-list
+				li.has-children
+					a.mobile-menu-list__link(href="#")
+						span.mobile-menu-list__link-icon
+							svg(role="img" width="16px" height="14px")
+								use(xlink:href="/static/images/sprite.svg#menu-burger")
+						span.mobile-menu-list__link-text Каталог
+						span.mobile-menu-list__link-arrow
+							svg(role="img" width="6px" height="9px")
+								use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+					ul.mobile-menu-list__sub-menu
+						li
+							a.mobile-menu-list__step-back(href="#")
+								span.mobile-menu-list__step-back-icon
+									svg(role="img" width="6px" height="9px")
+										use(xlink:href="/static/images/sprite.svg#small-arrow")
+								span.mobile-menu-list__step-back-text Назад
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Агрегаты холодильные
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аксессуары, запчасти
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аптечки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Верстаки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Картотеки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ключницы
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Медицинская мебель
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сейфы и шкафы бухгалтерские
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сумочные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы архивные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы для одежды
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы оружейные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ящики почтовые
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Гастроемкости, крышки, поддоны, формы, лотки
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Картотеки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ключницы
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Медицинская мебель
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сейфы и шкафы бухгалтерские
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сумочные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы архивные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы для одежды
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы оружейные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ящики почтовые
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Емкости для отходов
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аксессуары, запчасти
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аптечки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Верстаки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сумочные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы архивные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы для одежды
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы оружейные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ящики почтовые
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text ЗИП
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы оружейные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ящики почтовые
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Кассовые места / боксы
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аксессуары, запчасти
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аптечки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Верстаки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Картотеки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ключницы
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Медицинская мебель
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сейфы и шкафы бухгалтерские
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сумочные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы архивные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы для одежды
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы оружейные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ящики почтовые
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Компрессоры холодильные
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аксессуары, запчасти
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аптечки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Верстаки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Картотеки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ключницы
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Медицинская мебель
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сейфы и шкафы бухгалтерские
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сумочные
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Кулеры
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сумочные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы архивные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы для одежды
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы оружейные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ящики почтовые
+
+							li.has-children
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Мебель металл
+									span.mobile-menu-list__link-arrow
+										svg(role="img" width="6px" height="9px")
+											use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+									
+								ul.mobile-menu-list__sub-menu
+									li
+										a.mobile-menu-list__step-back(href="#")
+											span.mobile-menu-list__step-back-icon
+												svg(role="img" width="6px" height="9px")
+													use(xlink:href="/static/images/sprite.svg#small-arrow")
+											span.mobile-menu-list__step-back-text Назад
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аксессуары, запчасти
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Аптечки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Верстаки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Картотеки
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ключницы
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Медицинская мебель
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сейфы и шкафы бухгалтерские
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Сумочные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы архивные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы для одежды
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Шкафы оружейные
+
+									li
+										a.mobile-menu-list__link(href="#")
+											span.mobile-menu-list__link-text Ящики почтовые
+			
+			form.search-form.mobile-menu__search-form
+				input(type="text" class="search-form__input" placeholder="Поиск по катологу")
+				button(type="submit" class="search-form__button")
+					svg(role="img" width="15px" height="16px")
+						use(xlink:href="/static/images/sprite.svg#search")
+
+			.mobile-menu__profile
+				a.mobile-menu__profile-link(href="#")
+					span.mobile-menu__profile-link-icon
+						svg(role="img" width="17px" height="17px")
+							use(xlink:href="/static/images/sprite.svg#user")
+					span.mobile-menu__profile-link-text Личный кабинет
+
+				.mobile-menu__profile-wrapper
+					a.mobile-menu__profile-link(href="#")
+						span.mobile-menu__profile-link-icon
+							svg(role="img" width="17px" height="15px")
+								use(xlink:href="/static/images/sprite.svg#heart-icon")
+						span.mobile-menu__profile-link-count 2
+
+					a.mobile-menu__profile-link(href="#")
+						span.mobile-menu__profile-link-icon
+							svg(role="img" width="15px" height="14px")
+								use(xlink:href="/static/images/sprite.svg#compare-icon")
+						span.mobile-menu__profile-link-count 13
+			
+			ul.mobile-menu__mobile-menu-list.mobile-menu-list
+				li
+					a.mobile-menu-list__link(href="#")
+						span.mobile-menu-list__link-text Бренды
+
+				li.has-children
+					a.mobile-menu-list__link(href="#")
+						span.mobile-menu-list__link-text Клиентам
+						span.mobile-menu-list__link-arrow
+							svg(role="img" width="6px" height="9px")
+								use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+					ul.mobile-menu-list__sub-menu
+						li
+							a.mobile-menu-list__step-back(href="#")
+								span.mobile-menu-list__step-back-icon
+									svg(role="img" width="6px" height="9px")
+										use(xlink:href="/static/images/sprite.svg#small-arrow")
+								span.mobile-menu-list__step-back-text Назад
+
+							li
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Агрегаты холодильные
+
+							li
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Агрегаты холодильные
+
+							li
+								a.mobile-menu-list__link(href="#")
+									span.mobile-menu-list__link-text Агрегаты холодильные
+
+				li
+					a.mobile-menu-list__link(href="#")
+						span.mobile-menu-list__link-text О компании
+
+				li
+					a.mobile-menu-list__link(href="#")
+						span.mobile-menu-list__link-text Контакты
+				
+			a.mobile-menu__callback.simple-button(href="#") Заказать звонок
+
+			.mobile-menu__footer
+				a.mobile-menu__req(href="tel:8 (8172) 54-61-50")
+					span.mobile-menu__req-icon
+						svg(role="img" width="13px" height="12px")
+							use(xlink:href="/static/images/sprite.svg#phone")
+							
+					span.mobile-menu__req-text 8 (8172) 54-61-50
+
+				a.mobile-menu__req(href="mailto:habarov71@mail.ru")
+					span.mobile-menu__req-icon
+						svg(role="img" width="14px" height="10px")
+							use(xlink:href="/static/images/sprite.svg#mail")
+							
+					span.mobile-menu__req-text habarov71@mail.ru
+			
+				span.mobile-menu__req
+					span.mobile-menu__req-icon
+						svg(role="img" width="12px" height="15px")
+							use(xlink:href="/static/images/sprite.svg#location-pin")
+							
+					span.mobile-menu__req-text г. Вологда, ул. Некрасова, д. 25
+
+
+		.base-wrapper
+			.base-container
+				header.header
+					.header__desktop
+						.header__top
+							.container
+								.row
+									.col-12
+										.header__top-wrapper
+											.header__top-wrapper-left
+												a.header__top-req(href="mailto:habarov71@mail.ru")
+													span.header__top-req-icon
+														svg(role="img" width="14px" height="10px")
+															use(xlink:href="/static/images/sprite.svg#mail")
+
+													span.header__top-req-text habarov71@mail.ru
+
+												a.header__top-req.header__top-req_phone(href="mailto:8 (8172) 54-61-50")
+													span.header__top-req-icon
+														svg(role="img" width="13px" height="12px")
+															use(xlink:href="/static/images/sprite.svg#phone")
+
+													b.header__top-req-text 8 (8172) 54-61-50
+
+												a.header__top-callback(href="#") Заказать звонок
+
+											.header__top-wrapper-right
+												.header__auth
+													a.header__auth-link(href="")
+														span.header__auth-link-icon
+															svg(role="img" width="11px" height="11px")
+																use(xlink:href="/static/images/sprite.svg#user")
+
+														span.header__auth-link-text Вход
+
+													a.header__auth-link(href="")
+														span.header__auth-link-text Регистрация
+
+						.header__main
+							.container
+								.row
+									.col-12
+										.header__main-wrapper
+											a.header__logo(href="/")
+												svg(role="img" width="210px" height="84px")
+													use(xlink:href="/static/images/sprite.svg#logo")
+
+											.header__main-wrapper-right
+												.header__main-top-row
+													form.search-form.header__search-form
+														input(type="text" class="search-form__input" placeholder="Поиск по катологу")
+														button(type="submit" class="search-form__button")
+															svg(role="img" width="15px" height="16px")
+																use(xlink:href="/static/images/sprite.svg#search")
+
+														//- .search-form__ajax-result
+														//- 	ul
+														//- 		each search in ['Пункт выпадающего поиска 1', 'Смартфон Samsung SM-A720F Galaxy A7 (2017) Gold', 'Смартфон Samsung SM-G955 Galaxy S8+ 64Gb Black', 'Смартфон Samsung SM-J320 J3 LTE Gold', 'Смартфон Samsung SM-J330 J3 Gold', 'Телевизор 55" Samsung QE55Q6FAMUXRU']
+														//- 			li
+														//- 				a(href="#")= search
+
+												.header__main-bottom-row
+													.catalog-menu.header__catalog-menu
+														a(href="#").catalog-menu__button
+															.catalog-menu__button-burger
+															.catalog-menu__button-text Каталог товаров
+															.catalog-menu__button-arrow
+														
+														ul.catalog-menu__list
+															li
+																a(href="#") Агрегаты холодильные
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+
+															li
+																a(href="#") Гастроемкости, крышки, поддоны, формы, лотки
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+															li
+																a(href="#") Емкости для отходов
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+															li
+																a(href="#") ЗИП
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+
+															li
+																a(href="#") Кассовые места / боксы
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+															li
+																a(href="#") Компрессоры холодильные
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+															li
+																a(href="#") Кулеры
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+																		a(href="#") Картотеки
+																		a(href="#") Ключницы
+																		a(href="#") Медицинская мебель
+																		a(href="#") Сейфы и шкафы бухгалтерские
+																		a(href="#") Сумочные
+																		a(href="#") Шкафы архивные
+																		a(href="#") Шкафы для одежды
+															li
+																a(href="#") Мебель металл
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+																.catalog-menu__sub-menu
+																	.col-4.catalog-menu__start-col
+																		a(href="#") Аксессуары, запчасти
+																		a(href="#") Аптечки
+																		a(href="#") Верстаки
+															
+															li
+																a(href="#").catalog-menu__all-categories Все категории
+																	svg(role="img", width="6", height="9")
+																		use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+													.header__main-menu.main-menu
+														li.main-menu__item
+															a(href="#").main-menu__link БРЕНДЫ
+
+														li.main-menu__item.main-menu__item_has-children
+															a(href="#").main-menu__link КЛИЕНТАМ
+
+															ul.main-menu__sub-menu
+																li.main-menu__sub-menu-item
+																	a(href="#").main-menu__sub-menu-link Подпункт 1
+
+																li.main-menu__sub-menu-item
+																	a(href="#").main-menu__sub-menu-link Подпункт 2
+
+																li.main-menu__sub-menu-item
+																	a(href="#").main-menu__sub-menu-link Подпункт 3
+
+														li.main-menu__item
+															a(href="#").main-menu__link О компании
+
+														li.main-menu__item
+															a(href="#").main-menu__link Контакты
+
+													.header__shop
+														a.shop-button.favorites-button(data-shop-button="cart" href="#")
+															span.shop-button__icon
+																svg(role="img" width="17px" height="15px")
+																	use(xlink:href="/static/images/sprite.svg#heart-icon")
+															span.shop-button__count.favorites-button__count.filled 15
+
+														a.shop-button.compare-button(data-shop-button="cart" href="#")
+															span.shop-button__icon
+																svg(role="img" width="15px" height="14px")
+																	use(xlink:href="/static/images/sprite.svg#compare-icon")
+															span.shop-button__count.compare-button__count 0
+															
+														a.shop-button.cart-button(data-shop-button="cart" href="#")
+															.shop-button__icon
+																svg(role="img" width="19px" height="18px")
+																	use(xlink:href="/static/images/sprite.svg#cart-icon")
+															span.shop-button__title Корзина
+															span.shop-button__count.cart-button__count.filled 15
+
+					.header__mobile
+						a.header__mobile-logo(href="/")
+							img(src="/static/images/logo.svg", alt="logo")
+						
+						.header__mobile-wrapper
+							a(href="#").header__mobile-cart
+								span.header__mobile-cart-icon
+									svg(role="img" width="19px" height="18px")
+										use(xlink:href="/static/images/sprite.svg#cart-icon")
+								span.header__mobile-cart-count 0
+							
+							a.header__mobile-burger(href="#")
+								span
+							
+
+				block content
+
+			footer.footer
+				.container
+					.row
+						.col-12.col-sm-6.col-lg-3
+							a.footer__logo(href="/")
+								svg(role="img" width="180px" height="72px")
+									use(xlink:href="/static/images/sprite.svg#logo")
+							
+							p.footer__copyright © 2019 Дом торгового оборудования <br>ООО «Техно Холод»
+
+						.col-12.d-none.d-lg-block.col-lg-3.col-xl-2
+							.footer__block
+								b.footer__block-title Компания
+								ul.footer__block-list
+									li
+										a(href="#") Бренды
+									li
+										a(href="#") О компании
+									li
+										a(href="#") Статьи
+									li
+										a(href="#") Контакты
+
+						.col-12.d-none.d-lg-block.col-lg-3.col-xl-2
+							.footer__block
+								b.footer__block-title Клиентам
+								ul.footer__block-list
+									li
+										a(href="#") Доставка
+									li
+										a(href="#") Оплата
+									li
+										a(href="#") Доставка
+
+						.col-12.col-sm-6.col-lg-3
+							.footer__block
+								b.footer__block-title Связаться с нами
+								p.footer__block-req г. Вологда, ул. Некрасова, д. 25
+								a(href="tel:8 (8172) 54-61-50").footer__block-req 8 (8172) 54-61-50
+								a(href="mailto:habarov71@mail.ru").footer__block-req.footer__block-req_email habarov71@mail.ru
+
+						.col-12.col-xl-2.d-none.d-xl-block
+							a.footer__callback-button.simple-button(href="#callback", data-toggle="modal", data-target="#request-price") Заказать звонок
+
+						.col-12
+							.footer__lower
+								a(href="#").footer__policy Политика конфиденциальности
+
+								a(href="https://place-start.ru" target="_blank").footer__made-by Сделано в
+									svg(role="img" width="107px" height="22px")
+										use(xlink:href="/static/images/sprite.svg#ps-logo")
+							
+			div(class="simple-modal modal fade", id="request-price", tabindex="-1", role="dialog", aria-labelledby="program", aria-hidden="true")
+				div(class="simple-modal__dialog modal-dialog", role="document")
+					.simple-modal__modal-content.modal-content
+						button(type="button" class="simple-modal__close" data-dismiss="modal" aria-label="Close")
+						.simple-modal__modal-body.modal-body
+							span.simple-modal__title Узнать цену
+							.simple-modal__content
+								form.simple-form.simple-modal__form.needs-validation
+									.simple-form-group
+										label.simple-form-group__title(for="data-name") Имя
+										input.simple-form-control.form-control(type="text" name="name" id="data-name" value="")
+
+									.simple-form-group.required
+										label.simple-form-group__title(for="data-phone") Телефон
+										input.simple-form-control.form-control(type="tel" name="phone" id="data-phone" value="")
+										.simple-form__feedback.invalid-feedback Обязательное поле для заполнение
+
+									.simple-form-group
+										label.simple-form-group__title(for="data-email") Email
+										input.simple-form-control.form-control(type="email" name="email" id="data-email" value="")
+										
+									input.simple-button.simple-form__submit(type="submit" value="Отправить")
+									.simple-form__action.simple-form__action_processing
+										svg.simple-form__action-svg(role="img" width="57px" height="57px")
+											use(xlink:href="/static/images/sprite.svg#preloader")
+
+									.simple-form__action.simple-form__action_success
+										svg.simple-form__action-svg(role="img" width="57px" height="57px")
+											use(xlink:href="/static/images/sprite.svg#done_icon")
+											
+										b.simple-form__action-title Заявка успешно отправлена
+
+
+
+		
+		script(src="/static/js/vendors.bundle.js")
+		script(src="/static/js/main.bundle.js")

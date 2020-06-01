@@ -1,0 +1,388 @@
+extends base.pug
+block append head
+	- var pageTitle = "Главная страница"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li
+								a(href="/") Каталог
+							li
+								a(href="/") Оборудование для общепита
+							li 
+								span Аппарат для горячего шоколада UGOLINI DELICE SILVER
+								
+					a.back-to-catalog(href="#")
+						svg(role="img" width="8px" height="5px")
+							use(xlink:href="/static/images/sprite.svg#arrow-left")
+						| Назад к списку товаров
+					
+
+					.product
+						.product__top-info(itemscope="" itemtype="http://schema.org/Product")
+							.row
+								.col-12.col-lg-6
+									// a.product__photo(href="/static/images/product3.jpg" data-fancybox="photo")
+									// 	img(src="/static/images/product3.jpg" alt="product-photo")
+									// 	.product__labels
+									// 		.product__label.product__label_green Новинка
+									// 		// .product__label.product__label_yellow Скидка
+									// 		// .product__label.product__label_blue Хит
+
+									// .product__photo.product__photo_none
+									// 	svg(role="img" width="80px" height="80px")
+									// 		use(xlink:href="/static/images/sprite.svg#no_photo")
+									// 	.product__labels
+									// 		.product__label.product__label_green Новинка
+									// 		// .product__label.product__label_yellow Скидка
+									// 		// .product__label.product__label_blue Хит
+									
+									.product-slider
+										.product__labels
+											.product__label.product__label_green Новинка
+											.product__label.product__label_yellow Скидка
+											.product__label.product__label_blue Хит
+
+										.product-slider__container
+											a.product-slider__container-slide.item-thumbnail(href="/static/images/product1.jpg" data-fancybox="gallery")
+												img(itemprop="image" src="/static/images/product1.jpg" alt="")
+											a.product-slider__container-slide.item-thumbnail(href="/static/images/product2.jpg" data-fancybox="gallery")
+												img(itemprop="image" src="/static/images/product2.jpg" alt="")
+											a.product-slider__container-slide.item-thumbnail(href="/static/images/product3.jpg" data-fancybox="gallery")
+												img(itemprop="image" src="/static/images/product3.jpg" alt="")
+											a.product-slider__container-slide.item-thumbnail(href="/static/images/product1.jpg" data-fancybox="gallery")
+												img(itemprop="image" src="/static/images/product1.jpg" alt="")
+											a.product-slider__container-slide.item-thumbnail(href="/static/images/product2.jpg" data-fancybox="gallery")
+												img(itemprop="image" src="/static/images/product2.jpg" alt="")
+											a.product-slider__container-slide.item-thumbnail(href="/static/images/product3.jpg" data-fancybox="gallery")
+												img(itemprop="image" src="/static/images/product3.jpg" alt="")
+
+										.product-slider__carousel
+											.product-slider__carousel-item
+												img(src="/static/images/product1.jpg" alt="img")
+											.product-slider__carousel-item
+												img(src="/static/images/product2.jpg" alt="img")
+											.product-slider__carousel-item
+												img(src="/static/images/product3.jpg" alt="img")
+											.product-slider__carousel-item
+												img(src="/static/images/product1.jpg" alt="img")
+											.product-slider__carousel-item
+												img(src="/static/images/product2.jpg" alt="img")
+											.product-slider__carousel-item
+												img(src="/static/images/product3.jpg" alt="img")
+													
+										
+												
+
+								.col-12.col-lg-6
+									form.product-form(action="/" method="POST")
+										p.page__title.product-form__title(itemprop="name") Аппарат для горячего шоколада UGOLINI DELICE SILVER
+
+										.product__attrs
+											.product__attrs-col
+												.product__attrs-item Артикул: 2342ET25
+												.product__attrs-item Код: 2342ET25
+											
+											.product__attrs-col
+												.product__attrs-country
+													.product__attrs-country-flag
+														img(src="/static/images/flag-italy.svg" alt="img")
+														
+													b.product__attrs-country-name Италия
+												
+												.product__attrs-brand
+													span.product__attrs-brand-title Бренд:
+													b.product__attrs-brand-value UGOLINI
+
+										a.product-form__show-params(href="#") Все характеристики
+
+										.product-form__price-table-wrapper
+											.product-form__price-table(itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer")
+												meta(itemprop="price" content="10000")
+												meta(itemprop="priceCurrency" content="руб.")
+												link(itemprop="availability" href="http://schema.org/InStock")
+												.product-form__price-table-row
+													.product-form__price-table-col.product-form__price-table-col_title Цена РРЦ
+													.product-form__price-table-col.product-form__price-table-col_price 10 000 руб.
+													.product-form__price-table-col.product-form__price-table-col_discount
+													.product-form__price-table-col.product-form__price-table-col_condition (при заказе до 2 000 руб.)
+												.product-form__price-table-row
+													.product-form__price-table-col.product-form__price-table-col_title Цена Опт
+													.product-form__price-table-col.product-form__price-table-col_price 9 500 руб.
+													.product-form__price-table-col.product-form__price-table-col_discount
+														span - 5%
+													.product-form__price-table-col.product-form__price-table-col_condition (при заказе от 2 000 до 12 000 руб.)
+												.product-form__price-table-row
+													.product-form__price-table-col.product-form__price-table-col_title Цена VIP
+													.product-form__price-table-col.product-form__price-table-col_price 9 000 руб.
+													.product-form__price-table-col.product-form__price-table-col_discount
+														span - 10%
+													.product-form__price-table-col.product-form__price-table-col_condition (при заказе свыше 12 000 руб.)
+
+										.product-form__cart-controls
+											.product-amount
+												.product-amount__button.product-amount__button_minus
+													svg(role="img" width="6px" height="10px")
+														use(xlink:href="/static/images/sprite.svg#amount-arrow")
+
+												.product-amount__field
+													input(type="number" name="product-count" min="1" max="100" value="1")
+												.product-amount__button.product-amount__button_plus
+													svg(role="img" width="6px" height="10px")
+														use(xlink:href="/static/images/sprite.svg#amount-arrow")
+											
+											.product-form__add
+												button.product-form__add-button.add-to-cart.simple-button(type="submit") В корзину
+												.product-form__add-notification
+													span.product-form__add-notification-title Товар добавлен в корзину
+													a.product-form__add-notification-button.simple-button(href="#") Перейти в корзину
+
+											// b.product-form__price.product-form__price_current Цена по запросу
+											// button.product-form__get-price.empty-button(type="submit") Узнать цену
+
+										.product-form__buttons-wrapper
+											button.product-form__button.product-form__button_add-to-favorites.active(type="button")
+												svg(role="img" width="16px" height="14px")
+													use(xlink:href="/static/images/sprite.svg#heart-icon")
+												| Добавить в избранное
+											
+											button.product-form__button.product-form__button_compare(type="button")
+												svg(role="img" width="15px" height="14px")
+													use(xlink:href="/static/images/sprite.svg#compare-icon")
+												| Добавить к сравнению
+
+								.col-12
+									.product__information
+										.row
+											.col-12.col-lg-9
+												.product__desc
+													b.product__desc-title Описание и характеристики
+													.product__desc-text.content-text
+														p Тестоформовочная машина (тестозакатка), вертикальная формовка, вес заготовок 50-1200г, 3 раскаточных валика из пищевого ПЭТ, производительность до 1200 заготовок/ч, регулировка валиков, выход для плоского хлеба, выходная полка на скользящих направляющих.
+													
+												.product__props
+													.product__props-row
+														.product__props-title Длинна, мм
+														.product__props-value 240
+													.product__props-row
+														.product__props-title Ширина, мм
+														.product__props-value 320
+													.product__props-row
+														.product__props-title Высота, мм
+														.product__props-value 490
+													.product__props-row
+														.product__props-title Напряжение, В
+														.product__props-value 220
+													.product__props-row
+														.product__props-title Мощность, кВт
+														.product__props-value 0.35
+													.product__props-row
+														.product__props-title Вес, кг
+														.product__props-value 4
+
+											.col-12.col-lg-3
+												.conditions
+													.conditions__block
+														.conditions__block-title
+															svg(role="img" width="26px" height="19px")
+																use(xlink:href="/static/images/sprite.svg#wallet")
+															| Оплата
+														
+														p.conditions__block-text Краткое описание о способах оплаты. Информация об оптовых и розничных ценах. Минимальнаы сумма заказа.
+
+													.conditions__block
+														.conditions__block-title
+															svg(role="img" width="26px" height="19px")
+																use(xlink:href="/static/images/sprite.svg#delivery")
+															| Доставка
+														
+														p.conditions__block-text Краткое описание о способах и сроках доставки. Информация о бесплатной доставке. Регионы доставки
+
+									.extra-products-slider
+										.extra-products-slider__slider-header
+											b.extra-products-slider__slider-header-title Лучшие предложения
+											.extra-products-slider__nav-buttons
+												a.extra-products-slider__nav-button.extra-products-slider__nav-button_prev(href="#")
+													svg(role="img" width="6px" height="9px")
+														use(xlink:href="/static/images/sprite.svg#small-arrow")
+														
+												a.extra-products-slider__nav-button.extra-products-slider__nav-button_next(href="#")
+													svg(role="img" width="6px" height="9px")
+														use(xlink:href="/static/images/sprite.svg#small-arrow")
+
+										.extra-products-slider__slider-body
+											a(href="#").product-card
+												span.product-card__thumb.product-card__thumb_none
+													svg(role="img")
+														use(xlink:href="/static/images/sprite.svg#no_photo")
+
+												span.product-card__labels
+													span.product-card__label.product-card__label_blue Хит
+													
+												span.product-card__info
+													span.product-card__title Кулер напольный с нагревом и электронным охлаждением LD-AEL-17 silver
+													span.product-card__params
+														span.product-card__param
+															span.product-card__param-title Бренд
+															span.product-card__param-value.product-card__param-value_brand VIATTO
+
+														span.product-card__param
+															span.product-card__param-title Страна
+															span.product-card__param-value Италия
+
+													span.product-card__price-row
+														b.product-card__price 3 540 руб.
+
+													span.product-card__buttons
+														button.product-card__button.product-card__add-to-cart.simple-button В корзину
+														button.product-card__button.product-card__add-to-favorites
+															svg(role="img" width="17px" height="15px")
+																use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+														button.product-card__button.product-card__add-to-compare
+															svg(role="img" width="15px" height="14px")
+																use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+											a(href="#").product-card
+												span.product-card__thumb.product-card__thumb_none
+													svg(role="img")
+														use(xlink:href="/static/images/sprite.svg#no_photo")
+
+												span.product-card__labels
+													span.product-card__label.product-card__label_blue Хит
+													
+												span.product-card__info
+													span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+													span.product-card__params
+														span.product-card__param
+															span.product-card__param-title Бренд
+															span.product-card__param-value.product-card__param-value_brand VIATTO
+
+														span.product-card__param
+															span.product-card__param-title Страна
+															span.product-card__param-value Италия
+
+													span.product-card__price-row
+														b.product-card__price 3 540 руб.
+
+													span.product-card__buttons
+														button.product-card__button.product-card__add-to-cart.simple-button В корзину
+														button.product-card__button.product-card__add-to-favorites
+															svg(role="img" width="17px" height="15px")
+																use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+														button.product-card__button.product-card__add-to-compare
+															svg(role="img" width="15px" height="14px")
+																use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+											a(href="#").product-card
+												span.product-card__thumb.product-card__thumb_none
+													svg(role="img")
+														use(xlink:href="/static/images/sprite.svg#no_photo")
+
+												span.product-card__labels
+													span.product-card__label.product-card__label_blue Хит
+													
+												span.product-card__info
+													span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+													span.product-card__params
+														span.product-card__param
+															span.product-card__param-title Бренд
+															span.product-card__param-value.product-card__param-value_brand VIATTO
+
+														span.product-card__param
+															span.product-card__param-title Страна
+															span.product-card__param-value Италия
+
+													span.product-card__price-row
+														b.product-card__price 3 540 руб.
+
+													span.product-card__buttons
+														button.product-card__button.product-card__add-to-cart.simple-button В корзину
+														button.product-card__button.product-card__add-to-favorites
+															svg(role="img" width="17px" height="15px")
+																use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+														button.product-card__button.product-card__add-to-compare
+															svg(role="img" width="15px" height="14px")
+																use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+											a(href="#").product-card
+												span.product-card__thumb.product-card__thumb_none
+													svg(role="img")
+														use(xlink:href="/static/images/sprite.svg#no_photo")
+
+												span.product-card__labels
+													span.product-card__label.product-card__label_blue Хит
+													
+												span.product-card__info
+													span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+													span.product-card__params
+														//- span.product-card__param
+														//- 	span.product-card__param-title Бренд
+														//- 	span.product-card__param-value.product-card__param-value_brand VIATTO
+
+														//- span.product-card__param
+														//- 	span.product-card__param-title Страна
+														//- 	span.product-card__param-value Италия
+
+													span.product-card__price-row
+														b.product-card__price 3 540 руб.
+
+													span.product-card__buttons
+														button.product-card__button.product-card__add-to-cart.simple-button В корзину
+														button.product-card__button.product-card__add-to-favorites
+															svg(role="img" width="17px" height="15px")
+																use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+														button.product-card__button.product-card__add-to-compare
+															svg(role="img" width="15px" height="14px")
+																use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+											a(href="#").product-card
+												span.product-card__thumb.product-card__thumb_none
+													svg(role="img")
+														use(xlink:href="/static/images/sprite.svg#no_photo")
+
+												span.product-card__labels
+													span.product-card__label.product-card__label_blue Хит
+													
+												span.product-card__info
+													span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+													span.product-card__params
+														span.product-card__param
+															span.product-card__param-title Бренд
+															span.product-card__param-value.product-card__param-value_brand VIATTO
+
+														span.product-card__param
+															span.product-card__param-title Страна
+															span.product-card__param-value Италия
+
+													span.product-card__price-row
+														b.product-card__price 3 540 руб.
+
+													span.product-card__buttons
+														button.product-card__button.product-card__add-to-cart.simple-button В корзину
+														button.product-card__button.product-card__add-to-favorites
+															svg(role="img" width="17px" height="15px")
+																use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+														button.product-card__button.product-card__add-to-compare
+															svg(role="img" width="15px" height="14px")
+																use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+											
+
+
+
+
+
+
+

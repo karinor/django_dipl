@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dto04_card" transform="translate(-1175.000000, -356.000000)">
+            <g id="italy" transform="translate(1175.000000, 356.000000)">
+                <g id="Group" transform="translate(10.500000, 8.000000) scale(-1, 1) rotate(-180.000000) translate(-10.500000, -8.000000) ">
+                    <g transform="translate(0.000000, 0.000000)" id="Path">
+                        <g transform="translate(0.000000, 0.000000)">
+                            <path d="M20.9931537,2.45177104 C20.9931537,1.09775084 19.9494024,5.68434189e-14 18.6621024,5.68434189e-14 L14,5.68434189e-14 L14,15.9365387 L18.6621024,15.9365387 C19.9494537,15.9365387 20.9931537,14.838734 20.9931537,13.4847677 L20.9931537,2.45177104 Z" fill="#CE2B37"></path>
+                            <path d="M2.33105122,15.9365387 C1.04375122,15.9365387 0,14.8387879 0,13.4847677 L0,2.45177104 C0,1.09775084 1.04375122,5.68434189e-14 2.33105122,5.68434189e-14 L6.99315366,5.68434189e-14 L6.99315366,15.9365387 L2.33105122,15.9365387 Z" fill="#009246"></path>
+                            <polygon fill="#EEEEEE" points="13.9932049 5.68434189e-14 7 5.68434189e-14 7 15.9365387 13.9931537 15.9365387 13.9931537 5.68434189e-14"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

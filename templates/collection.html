@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 brd">
+				<div class="breadcrumbs">
+					<ul>
+						<li><a href="/">Главная</a></li>
+						<li> <span>Избранные товары</span></li>
+					</ul>
+				</div>
+				<p class="page__title">Избранные товары</p>
+			</div>
+			{% if products %}
+				{% for product in products %}
+				<div class="col-12 col-sm-6 col-lg-4 col-xl-3" data-pk="{{ product.pk }}">
+					{% include "collection_object.html" with product=product %}
+				</div>
+				{% endfor %}
+			{% else %}
+				{% include "favorites_empty.html" %}
+			{% endif %}
+			<!-- <div class="col-12 col-sm-6 col-lg-4 col-xl-3"><a class="product-card" href="#"><span class="product-card__thumb" style="background-image: url(/static/images/product1.jpg);"></span><span class="product-card__labels"><span class="product-card__label product-card__label_yellow">Скидка</span></span><span class="product-card__remove"></span><span class="product-card__info"><span class="product-card__title">Упаковщик вакуумный VIATTO DZ-350MS</span><span class="product-card__params"><span class="product-card__param"><span class="product-card__param-title">Бренд</span><span class="product-card__param-value product-card__param-value_brand">VIATTO</span></span><span class="product-card__param"><span class="product-card__param-title">Страна</span><span class="product-card__param-value">Италия</span></span></span><span class="product-card__price-row"><b class="product-card__new-price">3 540 руб.</b><span class="product-card__old-price">4 540 руб.</span></span><span class="product-card__buttons">
+							<button class="product-card__button product-card__add-to-cart simple-button">В корзину</button>
+							<button class="product-card__button product-card__add-to-favorites">
+								<svg role="img" width="17px" height="15px">
+									<use xlink:href="/static/images/sprite.svg#heart-empty"></use>
+								</svg>
+							</button>
+							<button class="product-card__button product-card__add-to-compare">
+								<svg role="img" width="15px" height="14px">
+									<use xlink:href="/static/images/sprite.svg#compare-empty"></use>
+								</svg>
+							</button></span></span></a></div>
+			<div class="col-12 col-sm-6 col-lg-4 col-xl-3"><a class="product-card" href="#"><span class="product-card__thumb" style="background-image: url(/static/images/product2.jpg);"></span><span class="product-card__labels"><span class="product-card__label product-card__label_green">Новинка</span></span><span class="product-card__remove"></span><span class="product-card__info"><span class="product-card__title">Упаковщик вакуумный VIATTO DZ-350MS</span><span class="product-card__params"><span class="product-card__param"><span class="product-card__param-title">Бренд</span><span class="product-card__param-value product-card__param-value_brand">VIATTO</span></span><span class="product-card__param"><span class="product-card__param-title">Страна</span><span class="product-card__param-value">Италия</span></span></span><span class="product-card__price-row"><b class="product-card__price">Цена по запросу</b></span><span class="product-card__buttons">
+							<button class="product-card__button product-card__get-price empty-button">Узнать цену</button>
+							<button class="product-card__button product-card__add-to-favorites">
+								<svg role="img" width="17px" height="15px">
+									<use xlink:href="/static/images/sprite.svg#heart-empty"></use>
+								</svg>
+							</button>
+							<button class="product-card__button product-card__add-to-compare">
+								<svg role="img" width="15px" height="14px">
+									<use xlink:href="/static/images/sprite.svg#compare-empty"></use>
+								</svg>
+							</button></span></span></a></div>
+			<div class="col-12 col-sm-6 col-lg-4 col-xl-3"><a class="product-card" href="#"><span class="product-card__thumb product-card__thumb_none">
+						<svg role="img">
+							<use xlink:href="/static/images/sprite.svg#no_photo"></use>
+						</svg></span><span class="product-card__labels"><span class="product-card__label product-card__label_blue">Хит</span></span><span class="product-card__remove"></span><span class="product-card__info"><span class="product-card__title">Упаковщик вакуумный VIATTO DZ-350MS</span><span class="product-card__params"><span class="product-card__param"><span class="product-card__param-title">Бренд</span><span class="product-card__param-value product-card__param-value_brand">VIATTO</span></span><span class="product-card__param"><span class="product-card__param-title">Страна</span><span class="product-card__param-value">Италия</span></span></span><span class="product-card__price-row"><b class="product-card__price">3 540 руб.</b></span><span class="product-card__buttons">
+							<button class="product-card__button product-card__add-to-cart simple-button">В корзину</button>
+							<button class="product-card__button product-card__add-to-favorites">
+								<svg role="img" width="17px" height="15px">
+									<use xlink:href="/static/images/sprite.svg#heart-empty"></use>
+								</svg>
+							</button>
+							<button class="product-card__button product-card__add-to-compare">
+								<svg role="img" width="15px" height="14px">
+									<use xlink:href="/static/images/sprite.svg#compare-empty"></use>
+								</svg>
+							</button></span></span></a></div>
+			<div class="col-12 col-sm-6 col-lg-4 col-xl-3"><a class="product-card" href="#"><span class="product-card__thumb" style="background-image: url(/static/images/product1.jpg);"></span><span class="product-card__labels"><span class="product-card__label product-card__label_yellow">Скидка</span></span><span class="product-card__remove"></span><span class="product-card__info"><span class="product-card__title">Упаковщик вакуумный VIATTO DZ-350MS</span><span class="product-card__params"><span class="product-card__param"><span class="product-card__param-title">Бренд</span><span class="product-card__param-value product-card__param-value_brand">VIATTO</span></span><span class="product-card__param"><span class="product-card__param-title">Страна</span><span class="product-card__param-value">Италия</span></span></span><span class="product-card__price-row"><b class="product-card__new-price">3 540 руб.</b><span class="product-card__old-price">4 540 руб.</span></span><span class="product-card__buttons">
+							<button class="product-card__button product-card__add-to-cart simple-button">В корзину</button>
+							<button class="product-card__button product-card__add-to-favorites">
+								<svg role="img" width="17px" height="15px">
+									<use xlink:href="/static/images/sprite.svg#heart-empty"></use>
+								</svg>
+							</button>
+							<button class="product-card__button product-card__add-to-compare">
+								<svg role="img" width="15px" height="14px">
+									<use xlink:href="/static/images/sprite.svg#compare-empty"></use>
+								</svg>
+							</button></span></span></a></div>
+			<div class="col-12 col-sm-6 col-lg-4 col-xl-3"><a class="product-card" href="#"><span class="product-card__thumb" style="background-image: url(/static/images/product2.jpg);"></span><span class="product-card__labels"><span class="product-card__label product-card__label_green">Новинка</span></span><span class="product-card__remove"></span><span class="product-card__info"><span class="product-card__title">Упаковщик вакуумный VIATTO DZ-350MS</span><span class="product-card__params"><span class="product-card__param"><span class="product-card__param-title">Бренд</span><span class="product-card__param-value product-card__param-value_brand">VIATTO</span></span><span class="product-card__param"><span class="product-card__param-title">Страна</span><span class="product-card__param-value">Италия</span></span></span><span class="product-card__price-row"><b class="product-card__price">Цена по запросу</b></span><span class="product-card__buttons">
+							<button class="product-card__button product-card__get-price empty-button">Узнать цену</button>
+							<button class="product-card__button product-card__add-to-favorites">
+								<svg role="img" width="17px" height="15px">
+									<use xlink:href="/static/images/sprite.svg#heart-empty"></use>
+								</svg>
+							</button>
+							<button class="product-card__button product-card__add-to-compare">
+								<svg role="img" width="15px" height="14px">
+									<use xlink:href="/static/images/sprite.svg#compare-empty"></use>
+								</svg>
+							</button></span></span></a></div> -->
+		</div>
+	</div>
+</div>
+{% endblock content %}

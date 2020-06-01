@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 isempty">
+			{% if products %}
+				<div class="breadcrumbs">
+					<ul>
+						<li><a href="/">Главная</a></li>
+						<li> <span>Корзина</span></li>
+					</ul>
+				</div>
+				<p class="page__title">Корзина</p>
+				<div class="cart">
+					<div class="cart-container">
+						<div class="cart-table">
+							<div class="cart-table-head">
+								<div class="cart-table-row">
+									<div class="cart-table-col cart-table-col_product"><span class="cart-table-head__title">Ваш заказ</span></div>
+									<div class="cart-table-col cart-table-col_price"><span class="cart-table-head__title">Цена</span></div>
+									<div class="cart-table-col cart-table-col_count"><span class="cart-table-head__title">Количество</span></div>
+									<div class="cart-table-col cart-table-col_total"><span class="cart-table-head__title">Сумма</span></div>
+									<div class="cart-table-col cart-table-col_delete"></div>
+								</div>
+							</div>
+							<div class="cart-table-body">
+								{% for product in products %}
+									{% include 'cart_item.html' with product=product %}
+								{% endfor %} 
+								{% comment %} <form class="cart-item" action="" method="POST">
+									<div class="cart-table-row">
+										<div class="cart-table-col cart-table-col_product"><a class="cart-item-link" href="#">
+												<div class="cart-item-thumb cart-item-thumb_no-photo">
+													<svg class="cart-item-thumb__icon" role="img">
+														<use xlink:href="/static/images/sprite.svg#no_photo"></use>
+													</svg>
+												</div>
+												<p class="cart-item-title">afasfasfasf asfasfasfasf asfasf</p></a></div>
+										<div class="cart-table-col cart-table-col_price">
+											<div class="cart-prices">
+												<p class="cart-item-price"><span class="cart-item-price-value" data-vip-price="429">2 900</span><span class="cart-item-price-currency"> руб.</span></p>
+											</div>
+										</div>
+										<div class="cart-table-col cart-table-col_count">
+											<div class="amount">
+												<div class="product-amount">
+													<div class="product-amount__button product-amount__button_minus">
+														<svg role="img" width="6px" height="10px">
+															<use xlink:href="/static/images/sprite.svg#amount-arrow"></use>
+														</svg>
+													</div>
+													<div class="product-amount__field">
+														<input type="number" name="product-count" min="1" max="100" value="3"/>
+													</div>
+													<div class="product-amount__button product-amount__button_plus">
+														<svg role="img" width="6px" height="10px">
+															<use xlink:href="/static/images/sprite.svg#amount-arrow"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="cart-table-col cart-table-col_total">
+											<div class="cart-item-total-wrap"><span class="cart-item-total">28 000</span><span class="cart-item-currency">руб.</span></div>
+										</div>
+										<div class="cart-table-col cart-table-col_delete">
+											<button class="cart-item-delete" type="button"></button>
+										</div>
+									</div>
+								</form> {% endcomment %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xl-6 col-12">
+								<p class="cart-desc">После оформления заявки на сайте мы свяжемся с вами. Уточним цены на интересующие товары, рассчитаем сроки и стоимость доставки.</p>
+							</div>
+							<div class="col-xl-6 col-12">
+								<div class="cart-order">
+									<p class="cart-text">Итого: <span class="cart-total">123123123</span><span class="cart-currency">руб.</span><span class="cart-text__sell">500</span></p><a class="cart-order-btn simple-button" href="{% url 'OrderDetails' %}">Оформить заказ</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				{% include 'cart_empty.html' %}
+			{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

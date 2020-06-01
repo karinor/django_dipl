@@ -1,0 +1,749 @@
+extends base.pug
+block append head
+	- var pageTitle = "Главная страница"
+
+block content
+
+	section.slider-section
+		.container
+			.row
+				.col-12
+					.bootslider#bootslider(class="carousel slide" data-ride="carousel")
+						ol.carousel-indicators
+							li(data-target="#bootslider" data-slide-to="0" class="active")
+							li(data-target="#bootslider" data-slide-to="1")
+							li(data-target="#bootslider" data-slide-to="2")
+						.carousel-inner
+							a(href="yandex.ru").carousel-item.active(style="background-image: url(/static/images/slide2.jpg);")
+								.bootslider__wrapper
+									//- b.bootslider__title Индукционные печи. Новое поступление
+									//- p.bootslider__desc Печи передовых производителей уже доступны в нашем каталоге
+									//- a(href="#" class="bootslider__button simple-button") В каталог
+							.carousel-item(style="background-image: url(/static/images/slide2.jpg);")
+								.bootslider__wrapper
+									//- b.bootslider__title Индукционные печи. Новое поступление
+									//- p.bootslider__desc Печи передовых производителей уже доступны в нашем каталоге
+									//- a(href="#" class="bootslider__button simple-button") В каталог
+							.carousel-item(style="background-image: url(/static/images/slide2.jpg);")
+								.bootslider__wrapper
+									//- b.bootslider__title Индукционные печи. Новое поступление
+									//- p.bootslider__desc Печи передовых производителей уже доступны в нашем каталоге
+									//- a(href="#" class="bootslider__button simple-button") В каталог
+						a(class="carousel-control-prev" href="#bootslider" role="button" data-slide="prev")
+							span(class="carousel-control-prev-icon" aria-hidden="true")
+								svg(role="img", width="11px", height="20px")
+									use(xlink:href="/static/images/sprite.svg#slider-arrow")
+
+							span(class="sr-only") prev
+						a(class="carousel-control-next" href="#bootslider" role="button" data-slide="next")
+							span(class="carousel-control-next-icon" aria-hidden="true")
+								svg(role="img", width="11px", height="20px")
+									use(xlink:href="/static/images/sprite.svg#slider-arrow")
+
+							span(class="sr-only") Next
+
+	section.index-catalog-section
+		.container
+			.row
+				.col-12
+					b.index-catalog-section__title Каталог товаров
+
+					.index-catalog-section__items-wrapper
+						.row
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-1")
+									b.category-block__title Агрегаты холодильные
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-2")
+									b.category-block__title ЗИП
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-3")
+									b.category-block__title Кулеры
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-4")
+									b.category-block__title Мебель торговая / стулья / столы
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-5")
+									b.category-block__title Оборудование весовое, ККМ
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-6")
+									b.category-block__title Оборудование климатическое
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-7")
+									b.category-block__title Посуда и инвентарь
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-8")
+									b.category-block__title Кассовые места / боксы
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-9")
+									b.category-block__title Емкости для отходов, мусора
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-10")
+									b.category-block__title Оборудование для общепита
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#category-icon-11")
+									b.category-block__title Оборудование упаковочное
+
+							.col-12.col-sm-6.col-md-4.col-xl-3
+								a.category-block.category-block_all(href="#")
+									span.category-block__icon
+										svg(role="img")
+											use(xlink:href="/static/images/sprite.svg#exit-icon")
+									b.category-block__title Смотреть весь каталог
+
+	section.best-products
+		.container
+			.row
+				.col-12
+					.best-products__header
+						.best-products__header-wrapper
+							b.best-products__header-title Лучшие предложения
+							ul.best-products__buttons.nav#myTab(role="tablist")
+								li
+									a.active#home-tab(data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true") Скидки
+								li
+									a#profile-tab(data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true") Новинки
+								li
+									a#contact-tab(data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="true") Хиты продаж
+									
+						a(href="#").best-products__catalog-link.d-none.d-md-inline-block Смотреть все
+
+					.best-products__body
+						.tab-content#myTabContent
+							.tab-pane.fade.show.active#home(role="tabpanel" aria-labelledby="home-tab")
+								.row
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product1.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_yellow Скидка
+
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__new-price 3 540 руб.
+													span.product-card__old-price 4 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product2.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_green Новинка
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price Цена по запросу
+
+												span.product-card__buttons
+													button.product-card__button.product-card__get-price.empty-button Узнать цену
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb.product-card__thumb_none
+												svg(role="img")
+													use(xlink:href="/static/images/sprite.svg#no_photo")
+
+											span.product-card__labels
+												span.product-card__label.product-card__label_blue Хит
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price 3 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product1.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_yellow Скидка
+
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__new-price 3 540 руб.
+													span.product-card__old-price 4 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product2.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_green Новинка
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price Цена по запросу
+
+												span.product-card__buttons
+													button.product-card__button.product-card__get-price.empty-button Узнать цену
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb.product-card__thumb_none
+												svg(role="img")
+													use(xlink:href="/static/images/sprite.svg#no_photo")
+
+											span.product-card__labels
+												span.product-card__label.product-card__label_blue Хит
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price 3 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product2.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_green Новинка
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price Цена по запросу
+
+												span.product-card__buttons
+													button.product-card__button.product-card__get-price.empty-button Узнать цену
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb.product-card__thumb_none
+												svg(role="img")
+													use(xlink:href="/static/images/sprite.svg#no_photo")
+
+											span.product-card__labels
+												span.product-card__label.product-card__label_blue Хит
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price 3 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+
+							.tab-pane.fade#profile(role="tabpanel" aria-labelledby="profile-tab")
+								.row
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb.product-card__thumb_none
+												svg(role="img")
+													use(xlink:href="/static/images/sprite.svg#no_photo")
+
+											span.product-card__labels
+												span.product-card__label.product-card__label_blue Хит
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price 3 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product1.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_yellow Скидка
+
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__new-price 3 540 руб.
+													span.product-card__old-price 4 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									
+							
+							.tab-pane.fade#contact(role="tabpanel" aria-labelledby="contact-tab")
+								.row
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb.product-card__thumb_none
+												svg(role="img")
+													use(xlink:href="/static/images/sprite.svg#no_photo")
+
+											span.product-card__labels
+												span.product-card__label.product-card__label_blue Хит
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price 3 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product1.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_yellow Скидка
+
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__new-price 3 540 руб.
+													span.product-card__old-price 4 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product2.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_green Новинка
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price Цена по запросу
+
+												span.product-card__buttons
+													button.product-card__button.product-card__get-price.empty-button Узнать цену
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb.product-card__thumb_none
+												svg(role="img")
+													use(xlink:href="/static/images/sprite.svg#no_photo")
+
+											span.product-card__labels
+												span.product-card__label.product-card__label_blue Хит
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price 3 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb(style="background-image: url(/static/images/product2.jpg);")
+											span.product-card__labels
+												span.product-card__label.product-card__label_green Новинка
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price Цена по запросу
+
+												span.product-card__buttons
+													button.product-card__button.product-card__get-price.empty-button Узнать цену
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+									.col-12.col-sm-6.col-lg-4.col-xl-3
+										a(href="#").product-card
+											span.product-card__thumb.product-card__thumb_none
+												svg(role="img")
+													use(xlink:href="/static/images/sprite.svg#no_photo")
+
+											span.product-card__labels
+												span.product-card__label.product-card__label_blue Хит
+												
+											span.product-card__info
+												span.product-card__title Упаковщик вакуумный VIATTO DZ-350MS
+												span.product-card__params
+													span.product-card__param
+														span.product-card__param-title Бренд
+														span.product-card__param-value.product-card__param-value_brand VIATTO
+
+													span.product-card__param
+														span.product-card__param-title Страна
+														span.product-card__param-value Италия
+
+												span.product-card__price-row
+													b.product-card__price 3 540 руб.
+
+												span.product-card__buttons
+													button.product-card__button.product-card__add-to-cart.simple-button В корзину
+													button.product-card__button.product-card__add-to-favorites
+														svg(role="img" width="17px" height="15px")
+															use(xlink:href="/static/images/sprite.svg#heart-empty")
+
+													button.product-card__button.product-card__add-to-compare
+														svg(role="img" width="15px" height="14px")
+															use(xlink:href="/static/images/sprite.svg#compare-empty")
+
+						a(href="#").best-products__catalog-link.d-md-none Смотреть все
+
+	section.section-cycle
+		.container
+			.row
+				.col-12
+					b.section-cycle__title Мы выполняем полный цикл услуг
+
+				.col-12.col-sm-6.col-lg-4
+					.cycle-block
+						.cycle-block__image
+							img(src="/static/images/cycle-image1.jpg", alt="cycle-image")
+
+						.cycle-block__info
+							.cycle-block__info-number 1
+							.cycle-block__info-title Планировка
+
+				.col-12.col-sm-6.col-lg-4
+					.cycle-block
+						.cycle-block__image
+							img(src="/static/images/cycle-image2.jpg", alt="cycle-image")
+
+						.cycle-block__info
+							.cycle-block__info-number 2
+							.cycle-block__info-title Подбор оборудования
+
+				.col-12.col-sm-6.col-lg-4
+					.cycle-block
+						.cycle-block__image
+							img(src="/static/images/cycle-image3.jpg", alt="cycle-image")
+
+						.cycle-block__info
+							.cycle-block__info-number 3
+							.cycle-block__info-title Монтаж и пусконаладка
+
+						
+
+	section.seo-scroller.seo-scroller_index-page
+		.container
+			.row
+				.col-12.col-lg-6
+					.seo-scroller__seo-images
+						<img src="/static/images/seo-img1.jpg" alt="img"/>
+						<img src="/static/images/seo-img2.jpg" alt="img"/>
+						<img src="/static/images/seo-img3.jpg" alt="img"/>
+
+				.col-12.col-lg-6
+					.seo-scroller__seo-text
+						.content-text
+							h1 H1. Пример заголовка SEO текста в две строки
+							p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+							p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+							h2 H2. Пример подзаголовка второго уровня типовой текстовой страницы в две строки или более
+							p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+							h3 H3. Пример подзаголовка третьего уровня типовой страницы
+							p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+							p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+							h3 H3. Пример подзаголовка третьего уровня типовой страницы
+							p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+							p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+							h3 H3. Пример подзаголовка третьего уровня типовой страницы
+							p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+							p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+							h3 H3. Пример подзаголовка третьего уровня типовой страницы
+							p В конце ноября, в оттепель, часов в девять утра, поезд Петербургско-Варшавской железной дороги на всех парах подходил к Петербургу. Было так сыро и туманно; в десяти шагах, вправо и влево от дороги, трудно было разглядеть хоть что-нибудь из окон вагона.
+							p Из пассажиров были и возвращавшиеся из-за границы; но более были наполнены отделения для третьего класса, и всё людом мелким и деловым, не из очень далека. Все, как водится, устали, у всех отяжелели за ночь глаза, все назяблись, все лица были бледно-желтые, под цвет тумана.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

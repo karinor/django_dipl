@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs" itemprop="http://schema.org/breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <ul>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a href="/" title="Главная" itemprop="url">
+                                <span itemprop="name">Главная</span>
+                            </a>
+                            <meta itemprop="position" content="1" />
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <span itemprop="name">Бренды</span>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                    </ul>
+                </div>							
+            </div>               
+        </div>                       
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    <div class="content-text">
+                        <h1>Бренды</h1>
+                        <br>
+                        <div class="brend_content">
+                            {% for brand in brands %}
+                                <img alt="{{ brand.title }}" src="{{ MEDIA_URL }}{{ brand.image }}" title="{{ brand.title }}" style="height: 157.946px;">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

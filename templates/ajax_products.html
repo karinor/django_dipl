@@ -1,0 +1,14 @@
+{% load static %}
+    {% if view == 'tile' %}
+    {% for product in object_list %}
+        <div class="col-12 col-sm-6 col-lg-4">
+            {% include 'product_list_object.html' with product=product %}
+        </div>
+    {% endfor %}
+{% elif view == 'wide' %}
+    {% for product in object_list %}
+        <div class="col-12 col-sm-6 col-md-12">
+            {% include 'product_list_object_wide.html' with product=product %}
+        </div>
+    {% endfor %}
+{% endif %}

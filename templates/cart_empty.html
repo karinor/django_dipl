@@ -1,0 +1,20 @@
+{% load static %}
+<div class="breadcrumbs">
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li> <span>Корзина</span></li>
+    </ul>   
+</div>
+<p class="page__title">Корзина</p>
+<div class="notify">
+    <div class="notify-body">
+        <svg class="notify-icon" role="img">
+            <use xlink:href="{% static 'images/sprite.svg' %}#cart-icon"></use>
+        </svg>
+        <div class="notify-text">
+            <p class="notify-title">Корзина пуста</p>
+            <p class="notify-desc">Добавьте товары в корзину из каталога</p>
+        </div>
+    </div>
+    <a class="notify-button simple-button" href="{% url 'catalog:CategoryList' %}">Вернуться в каталог</a>
+</div>

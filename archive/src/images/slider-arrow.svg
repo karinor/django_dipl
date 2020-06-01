@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="20px" viewBox="0 0 12 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-next</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dto01_main-copy" transform="translate(-1503.000000, -295.000000)" fill="#FFFFFF">
+            <g id="Slider" transform="translate(0.000000, 130.000000)">
+                <g transform="translate(375.000000, 15.000000)" id="right">
+                    <g transform="translate(1090.000000, 0.000000)">
+                        <path d="M36.5,163.5 L45.2551973,163.5 C46.2188252,163.5 47,164.276763 47,165.25 C47,166.216498 46.2071865,167 45.2551973,167 L34.7448027,167 C34.2638464,167 33.8283412,166.8065 33.5127282,166.491649 C33.1951744,166.16583 33,165.730339 33,165.255197 L33,154.744803 C33,153.781175 33.7767634,153 34.75,153 C35.7164983,153 36.5,153.792814 36.5,154.744803 L36.5,163.5 Z" id="icon-next" transform="translate(40.000000, 160.000000) scale(-1, 1) rotate(-315.000000) translate(-40.000000, -160.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

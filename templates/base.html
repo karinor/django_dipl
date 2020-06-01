@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta charset="UTF-8"/>
+		<title></title>
+		<link rel="stylesheet" href="{% static 'css/vendors.min.css' %}"/>
+		<link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+	</head>
+	<body><a class="filter-close"><span class="filter-close__button"></span></a>
+		<div class="mobile-menu">
+			<ul class="mobile-menu__mobile-menu-catalog mobile-menu-list">
+				<li class="has-children"><a class="mobile-menu-list__link" href="#">
+                    <span class="mobile-menu-list__link-icon">
+							<svg role="img" width="16px" height="14px">
+								<use xlink:href="{% static 'images/sprite.svg' %}#menu-burger"></use>
+							</svg>
+                    </span><span class="mobile-menu-list__link-text">Каталог</span>
+                    <span class="mobile-menu-list__link-arrow">
+							<svg role="img" width="6px" height="9px">
+								<use xlink:href="{% static 'images/sprite.svg' %}#small-arrow"></use>
+							</svg></span></a>
+					<ul class="mobile-menu-list__sub-menu">
+						<li><a class="mobile-menu-list__step-back" href="#"><span class="mobile-menu-list__step-back-icon">
+									<svg role="img" width="6px" height="9px">
+										<use xlink:href="{% static '/images/sprite.svg' %}#small-arrow"></use>
+									</svg></span><span class="mobile-menu-list__step-back-text">Назад</span></a>
+
+									{% for category in catalog %}
+											{% if category.childs_exists %}
+											<li class="has-children"><a class="mobile-menu-list__link" href="#"><span class="mobile-menu-list__link-text">{{ category.title }} </span><span class="mobile-menu-list__link-arrow">
+														<svg role="img" width="6px" height="9px">
+															<use xlink:href="{% static 'images/sprite.svg' %}#small-arrow"></use>
+														</svg></span></a>
+												<ul class="mobile-menu-list__sub-menu">
+													<li><a class="mobile-menu-list__step-back" href="#"><span class="mobile-menu-list__step-back-icon">
+																<svg role="img" width="6px" height="9px">
+																	<use xlink:href="{% static 'images/sprite.svg' %}#small-arrow"></use>
+																</svg></span><span class="mobile-menu-list__step-back-text">Назад</span></a></li>
+													{% for child in category.get_childs %}
+														<li><a class="mobile-menu-list__link" href="{{ child.get_absolute_url }}"><span class="mobile-menu-list__link-text">{{ child.title }}</span></a></li>
+													{% endfor %}
+												</ul>
+											</li>
+											{% else %}
+												<li><a class="mobile-menu-list__link" href="{{ category.get_absolute_url }}"><span class="mobile-menu-list__link-text">{{ category.title }}</span></a></li>
+											{% endif %}
+									{% endfor %}
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<form class="search-form mobile-menu__search-form">
+				<input class="search-form__input" type="text" placeholder="Поиск по катологу"/>
+				<button class="search-form__button" type="submit">
+					<svg role="img" width="15px" height="16px">
+						<use xlink:href="{% static 'images/sprite.svg' %}#search"></use>
+					</svg>
+				</button>
+			</form>
+			<div class="mobile-menu__profile"><a class="mobile-menu__profile-link" href="#"><span class="mobile-menu__profile-link-icon">
+						<svg role="img" width="17px" height="17px">
+							<use xlink:href="{% static 'images/sprite.svg' %}#user"></use>
+						</svg></span><span class="mobile-menu__profile-link-text">Личный кабинет</span></a>
+				<div class="mobile-menu__profile-wrapper"><a class="mobile-menu__profile-link" href="{% url 'catalog:FavoritesDetails' %}"><span class="mobile-menu__profile-link-icon">
+							<svg role="img" width="17px" height="15px">
+								<use xlink:href="{% static 'images/sprite.svg' %}#heart-icon"></use>
+							</svg></span><span class="mobile-menu__profile-link-count">{%  if favorites_count %} {{ favorites_count }} {% else %} 0 {% endif %}</span></a><a class="mobile-menu__profile-link" href="{% url 'catalog:CompareDetails' %}"><span class="mobile-menu__profile-link-icon">
+							<svg role="img" width="15px" height="14px">
+								<use xlink:href="{% static 'images/sprite.svg' %}#compare-icon"></use>
+							</svg></span><span class="mobile-menu__profile-link-count">{%  if compare_count %} {{ compare_count }} {% else %} 0 {% endif %}</span></a></div>
+			</div>
+			<ul class="mobile-menu__mobile-menu-list mobile-menu-list">
+				<li><a class="mobile-menu-list__link" href="{% url 'pages:ContactsPage' %}"><span class="mobile-menu-list__link-text">Контакты</span></a></li>
+			</ul>
+			<div class="mobile-menu__footer"><a class="mobile-menu__req" href="tel:8 (1111) 11-11-11"><span class="mobile-menu__req-icon">
+						<svg role="img" width="13px" height="12px">
+							<use xlink:href="{% static 'images/sprite.svg' %}#phone"></use>
+						</svg></span><span class="mobile-menu__req-text">8 (1111) 11-11-11</span></a><a class="mobile-menu__req" href="mailto:11111111@mail.ru"><span class="mobile-menu__req-icon">
+						<svg role="img" width="14px" height="10px">
+							<use xlink:href="{% static 'images/sprite.svg' %}#mail"></use>
+						</svg></span><span class="mobile-menu__req-text">11111111@mail.ru</span></a><span class="mobile-menu__req"><span class="mobile-menu__req-icon">
+						<svg role="img" width="12px" height="15px">
+							<use xlink:href="{% static 'images/sprite.svg' %}#location-pin"></use>
+						</svg></span><span class="mobile-menu__req-text">г. Вологда, ул. Вологодская, д. 1</span></span></div>
+			</div>
+		<div class="base-wrapper">
+			<div class="base-container">
+				<header class="header">
+					<div class="header__desktop">
+						<div class="header__top">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<div class="header__top-wrapper">
+											<div class="header__top-wrapper-left"><a class="header__top-req" href="mailto:1111111@mail.ru"><span class="header__top-req-icon">
+														<svg role="img" width="14px" height="10px">
+															<use xlink:href="{% static 'images/sprite.svg' %}#mail"></use>
+														</svg></span><span class="header__top-req-text">1111111@mail.ru</span></a><a class="header__top-req header__top-req_phone" href="mailto:8 (1111) 11-11-11"><span class="header__top-req-icon">
+														<svg role="img" width="13px" height="12px">
+															<use xlink:href="{% static 'images/sprite.svg' %}#phone"></use>
+														</svg></span><b class="header__top-req-text">8 (1111) 11-11-11</b></a></div>
+											<div class="header__top-wrapper-right">
+												<div class="header__auth">
+													{% if user.is_authenticated %}
+														<a class="header__auth-link" href="{% url 'account:ProfileData' %}"><span class="header__auth-link-icon">
+															<svg role="img" width="11px" height="11px">
+																<use xlink:href="{% static 'images/sprite.svg' %}#user"></use>
+															</svg></span><span class="header__auth-link-text">{{ user.username }}</span>
+														</a>
+														<a class="header__auth-link" href="{% url 'account:logout' %}">
+															<span class="header__auth-link-text">Выйти</span>
+														</a>
+													{% else %}
+														<a class="header__auth-link" href="{% url 'account:login' %}"><span class="header__auth-link-icon">
+															<svg role="img" width="11px" height="11px">
+																<use xlink:href="{% static 'images/sprite.svg' %}#user"></use>
+															</svg></span><span class="header__auth-link-text">Вход</span>
+														</a>
+														<a class="header__auth-link" href="{% url 'account:register' %}">
+															<span class="header__auth-link-text">Регистрация</span>
+														</a>
+													{% endif %}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="header__main">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<div class="header__main-wrapper" ><a class="header__logo" href="/">
+												<svg role="img" width="210px" height="84px">
+													<use xlink:href="{% static 'images/sprite.svg' %}#logo"></use>
+												</svg></a>
+											<div class="header__main-wrapper-right">
+												<div class="header__main-top-row" >
+													<form method="POST" action="{% url 'catalog:CategoryList' %}" class="search-form header__search-form">
+														{% csrf_token %}
+														<input class="search-form__input" name="q" type="text" placeholder="Поиск по катологу"/>
+														<button class="search-form__button" type="submit">
+															<svg role="img" width="15px" height="16px">
+																<use xlink:href="{% static 'images/sprite.svg' %}#search"></use>
+															</svg>
+														</button>
+													</form>
+												</div>
+												<div class="header__main-bottom-row">
+													<div class="catalog-menu header__catalog-menu"><a class="catalog-menu__button" href="#">
+															<div class="catalog-menu__button-burger"></div>
+															<div class="catalog-menu__button-text">Каталог товаров</div>
+															<div class="catalog-menu__button-arrow"></div></a>
+														<ul class="catalog-menu__list">
+															{% for category in catalog %}
+																{% if category.childs_exists %}
+																	<li><a href="{{ category.get_absolute_url }}">{{ category.title }}
+																			<svg role="img" width="6" height="9">
+																				<use xlink:href="{% static 'images/sprite.svg' %}#small-arrow"></use>
+																			</svg></a>
+																		<div class="catalog-menu__sub-menu">
+																			<div class="col-4 catalog-menu__start-col">
+																			{% for child in category.get_childs %}
+																			<a href="{{ child.get_absolute_url }}">{{ child.title }}</a>
+																			{% endfor %}
+																			</div>
+																		</div>
+																	</li>
+																{% else %}
+																<li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+																{% endif %}
+															{% endfor %}
+															<li><a class="catalog-menu__all-categories" href="{% url 'catalog:CategoryList' %}">Все категории</li>
+														</ul>
+													</div>
+													<div class="header__main-menu main-menu">
+														<li class="main-menu__item"><a class="main-menu__link" href="{% url 'pages:ContactsPage' %}">Контакты</a></li>
+													</div>
+													<div class="header__shop"><a class="shop-button favorites-button" data-shop-button="cart" href="{% url 'catalog:FavoritesDetails' %}"><span class="shop-button__icon">
+																<svg role="img" width="17px" height="15px">
+																	<use xlink:href="{% static '/images/sprite.svg' %}#heart-icon"></use>
+																</svg></span><span class="shop-button__count favorites-button__count filled">
+																	{% if favorites_count %}
+																		{{ favorites_count }}
+																	{% else %}
+																		0
+																	{% endif %}
+																</span></a><a class="shop-button compare-button" data-shop-button="cart" href="{% url 'catalog:CompareDetails' %}"><span class="shop-button__icon">
+																<svg role="img" width="15px" height="14px">
+																	<use xlink:href="{% static '/images/sprite.svg' %}#compare-icon"></use>
+																</svg></span><span class="shop-button__count compare-button__count">
+																	{% if compare_count %}
+																		{{ compare_count }}
+																	{% else %}
+																		0
+																	{% endif %}
+																	</span></a><a class="shop-button cart-button" data-shop-button="cart" href="{% url 'CartDetails' %}">
+															<div class="shop-button__icon">
+																<svg role="img" width="19px" height="18px">
+																	<use xlink:href="{% static '/images/sprite.svg' %}#cart-icon"></use>
+																</svg>
+															</div><span class="shop-button__title">Корзина</span>
+															<span class="shop-button__count cart-button__count filled">
+															{% if cart_count %}
+																{{ cart_count }}
+															{% else %}
+																0
+															{% endif %}
+															</span>
+															</a></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="header__mobile"><a class="header__mobile-logo" href="/"><img src="{% static '/images/logo.svg' %}" alt="logo"/></a>
+						<div class="header__mobile-wrapper"><a class="header__mobile-cart" href="#"><span class="header__mobile-cart-icon">
+									<svg role="img" width="19px" height="18px">
+										<use xlink:href="{% static '/images/sprite.svg' %}#cart-icon"></use>
+									</svg></span><span class="header__mobile-cart-count">0</span></a><a class="header__mobile-burger" href="#"><span></span></a></div>
+					</div>
+				</header>
+				{% block content %}
+				{% endblock %}		
+			</div>
+			<footer class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-6 col-lg-3"><a class="footer__logo" href="/">
+								<svg role="img" width="180px" height="72px">
+									<use xlink:href="{% static 'images/sprite.svg' %}#logo"></use>
+								</svg></a>
+							<p class="footer__copyright">© 2020 Торговое оборудование <br>ООО «ПятьШестьСемьВосемь»</p>
+						</div>
+						<div class="col-12 d-none d-lg-block col-lg-3 col-xl-2">
+							<div class="footer__block"><b class="footer__block-title">Компания</b>
+								<ul class="footer__block-list">
+									<li><a href="#">Бренды</a></li>
+									<li><a href="#">О компании</a></li>
+									<li><a href="#">Статьи</a></li>
+									<li><a href="{% url 'pages:ContactsPage' %}">Контакты</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-12 d-none d-lg-block col-lg-3 col-xl-2">
+							<div class="footer__block"><b class="footer__block-title">Клиентам</b>
+								<ul class="footer__block-list">
+									<li><a href="#">Доставка</a></li>
+									<li><a href="#">Оплата</a></li>
+									<li><a href="#">Доставка</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-12 col-sm-6 col-lg-3">
+							<div class="footer__block"><b class="footer__block-title">Связаться с нами</b>
+								<p class="footer__block-req">г. Вологда, ул. Вологодская, д. 1</p>
+                                <a class="footer__block-req" href="tel:8 (8172) 54-61-50">8 (1111) 11-11-11</a>
+                                <a class="footer__block-req footer__block-req_email" href="mailto:habarov71@mail.ru">111111@mail.ru</a>
+							</div>
+						</div>
+						<div class="col-12 col-xl-2 d-none d-xl-block"><a class="footer__callback-button simple-button" href="#callback" data-toggle="modal" data-target="#request-price">Заказать звонок</a></div>
+						<div class="col-12">
+                            </div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<div class="simple-modal modal fade" id="request-price" tabindex="-1" role="dialog" aria-labelledby="program" aria-hidden="true">
+				<div class="simple-modal__dialog modal-dialog" role="document">
+					<div class="simple-modal__modal-content modal-content">
+						<button class="simple-modal__close" type="button" data-dismiss="modal" aria-label="Close"></button>
+						<div class="simple-modal__modal-body modal-body"><span class="simple-modal__title">Узнать цену</span>
+							<div class="simple-modal__content">
+								<form class="simple-form simple-modal__form needs-validation">
+									<div class="simple-form-group">
+										<label class="simple-form-group__title" for="data-name">Имя</label>
+										<input class="simple-form-control form-control" type="text" name="name" id="data-name" value=""/>
+									</div>
+									<div class="simple-form-group required">
+										<label class="simple-form-group__title" for="data-phone">Телефон</label>
+										<input class="simple-form-control form-control" type="tel" name="phone" id="data-phone" value=""/>
+										<div class="simple-form__feedback invalid-feedback">Обязательное поле для заполнение</div>
+									</div>
+									<div class="simple-form-group">
+										<label class="simple-form-group__title" for="data-email">Email</label>
+										<input class="simple-form-control form-control" type="email" name="email" id="data-email" value=""/>
+									</div>
+									<input class="simple-button simple-form__submit" type="submit" value="Отправить"/>
+									<div class="simple-form__action simple-form__action_processing">
+										<svg class="simple-form__action-svg" role="img" width="57px" height="57px">
+											<use xlink:href="{% static '/images/sprite.svg' %}#preloader"></use>
+										</svg>
+									</div>
+									<div class="simple-form__action simple-form__action_success">
+										<svg class="simple-form__action-svg" role="img" width="57px" height="57px">
+											<use xlink:href="{% static '/images/sprite.svg' %}#done_icon"></use>
+										</svg><b class="simple-form__action-title">Заявка успешно отправлена</b>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="{% static 'js/ajax-order.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="{% static 'js/ajax-script.js' %}"></script>
+		<script src="{% static 'js/vendors.bundle.js' %}"></script>
+		<script src="{% static 'js/main.bundle.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+extends base.pug
+block append head
+	- var pageTitle = "Корзина"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li 
+								span Корзина
+								
+					p.page__title Корзина
+
+				.col-12.col-lg-4.col-xl-3
+					ul.sidebar
+						li.sidebar-item
+							a.sidebar-link(href="#") Мои заказы
+						li.sidebar-item
+							a.sidebar-link(href="#") Личные данные
+						li.sidebar-item
+							a.sidebar-link(href="#") Избранные товары
+						li.sidebar-item
+							a.sidebar-link(href="#") Выход
+							
+
+				.col-12.col-lg-8.col-xl-9
+
+					.order-item
+						.order-item-head
+							p.order-item-title Заказ № 12 от 25.04.2019
+							p.order-item-status.order-item-status_success Выполнен
+						
+						.order-item-body
+							.order-item-products
+								a.order-item-product
+									span.order-item-product__title Заголовок
+									span.order-item-product__count 4 x 
+										b 4 руб.
+
+								a.order-item-product
+									span.order-item-product__title Заголовок
+									span.order-item-product__count 4 x 
+										b 4 руб.
+
+								a.order-item-product
+									span.order-item-product__title Заголовок
+									span.order-item-product__count 4 x 
+										b 4 руб.
+										
+							p.order-item-total Итого: 
+								span.order-item-total__price 50 000 руб.
+
+
+
+					.notify
+						.notify-body
+							.notify-text
+								p.notify-title История заказов пуста
+								p.notify-desc Вы пока не совершили ни одного заказа
+
+						a.notify-button.simple-button(href="/") Перейти в каталог

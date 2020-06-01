@@ -1,0 +1,186 @@
+extends base.pug
+block append head
+	- var pageTitle = "Главная страница"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li 
+								span Каталог товаров
+								
+					p.page__title Каталог товаров
+
+				.col-12
+					#catalog-collapse.catalog-collapse
+						.row
+							.col-12.col-sm-6.col-lg-4
+								.catalog-block
+									span.catalog-block__image
+										img(src="/static/images/seo-img1.jpg", alt="catalog image")
+									span.catalog-block__content
+										a.catalog-block__title(href="#") Агрегаты холодильные
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										.catalog-collapse__collapse.collapse#catalog-collapse1(aria-labelledby="headingOne")
+											.catalog-collapse__collapse-content
+												a.catalog-block__link(href="#") Гардеробные настенные системы
+													
+												a.catalog-block__link(href="#") Стеллажи PRO MS складские
+													
+												a.catalog-block__link(href="#") Стеллажи СБС складские
+													
+												a.catalog-block__link(href="#") aaaaaaa
+
+										a.catalog-block__collapse-trigger.collapsed(data-toggle="collapse" data-target="#catalog-collapse1" aria-expanded="false" aria-controls="catalog-collapse1")
+										
+										
+							.col-12.col-sm-6.col-lg-4
+								.catalog-block
+									span.catalog-block__image
+										img(src="/static/images/catalog-block-img2.jpg", alt="catalog image")
+									span.catalog-block__content
+										a.catalog-block__title(href="#") Гастроемкости, крышки, поддоны, формы, лотки
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										.catalog-collapse__collapse.collapse#catalog-collapse2(aria-labelledby="headingOne")
+											.catalog-collapse__collapse-content
+												a.catalog-block__link(href="#") Гардеробные настенные системы
+													
+												a.catalog-block__link(href="#") Стеллажи PRO MS складские
+													
+												a.catalog-block__link(href="#") Стеллажи для обоев
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи разное
+													
+												a.catalog-block__link(href="#") Стеллажи СБС складские
+													
+												a.catalog-block__link(href="#") bxbxbxbxb
+
+										a.catalog-block__collapse-trigger.collapsed(data-toggle="collapse" data-target="#catalog-collapse2" aria-expanded="false" aria-controls="catalog-collapse2")
+										
+
+							.col-12.col-sm-6.col-lg-4
+								.catalog-block
+									span.catalog-block__image
+										img(src="/static/images/catalog-block-img2.jpg", alt="catalog image")
+									span.catalog-block__content
+										a.catalog-block__title(href="#") Гастроемкости, крышки, поддоны, формы, лотки
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										.catalog-collapse__collapse.collapse#catalog-collapse3(aria-labelledby="headingOne")
+											.catalog-collapse__collapse-content
+												a.catalog-block__link(href="#") Гардеробные настенные системы
+													
+												a.catalog-block__link(href="#") Стеллажи PRO MS складские
+													
+												a.catalog-block__link(href="#") Стеллажи для обоев
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи разное
+													
+												a.catalog-block__link(href="#") Стеллажи СБС складские
+													
+												a.catalog-block__link(href="#") bxbxbxbxb
+
+										a.catalog-block__collapse-trigger.collapsed(data-toggle="collapse" data-target="#catalog-collapse3" aria-expanded="false" aria-controls="catalog-collapse3")
+
+							.col-12.col-sm-6.col-lg-4
+								.catalog-block
+									span.catalog-block__image
+										img(src="/static/images/catalog-block-img2.jpg", alt="catalog image")
+									span.catalog-block__content
+										a.catalog-block__title(href="#") Гастроемкости, крышки, поддоны, формы, лотки
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										.catalog-collapse__collapse.collapse#catalog-collapse4(aria-labelledby="headingOne")
+											.catalog-collapse__collapse-content
+												a.catalog-block__link(href="#") Гардеробные настенные системы
+													
+												a.catalog-block__link(href="#") Стеллажи PRO MS складские
+													
+												a.catalog-block__link(href="#") Стеллажи для обоев
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи разное
+													
+												a.catalog-block__link(href="#") Стеллажи СБС складские
+													
+												a.catalog-block__link(href="#") bxbxbxbxb
+
+										a.catalog-block__collapse-trigger.collapsed(data-toggle="collapse" data-target="#catalog-collapse4" aria-expanded="false" aria-controls="catalog-collapse4")
+
+							.col-12.col-sm-6.col-lg-4
+								.catalog-block
+									span.catalog-block__image
+										img(src="/static/images/catalog-block-img2.jpg", alt="catalog image")
+									span.catalog-block__content
+										a.catalog-block__title(href="#") Гастроемкости, крышки, поддоны, формы, лотки
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										a.catalog-block__link(href="#") Аксессуары, запчасти
+										.catalog-collapse__collapse.collapse#catalog-collapse5(aria-labelledby="headingOne")
+											.catalog-collapse__collapse-content
+												a.catalog-block__link(href="#") Гардеробные настенные системы
+													
+												a.catalog-block__link(href="#") Стеллажи PRO MS складские
+													
+												a.catalog-block__link(href="#") Стеллажи для обоев
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (в сборе)
+													
+												a.catalog-block__link(href="#") Стеллажи МС-Т складские (деталировка)
+													
+												a.catalog-block__link(href="#") Стеллажи разное
+													
+												a.catalog-block__link(href="#") Стеллажи СБС складские
+													
+												a.catalog-block__link(href="#") bxbxbxbxb
+
+										a.catalog-block__collapse-trigger.collapsed(data-toggle="collapse" data-target="#catalog-collapse5" aria-expanded="false" aria-controls="catalog-collapse5")

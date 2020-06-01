@@ -1,0 +1,42 @@
+{% load static %}
+{% with page.paginator.num_pages as pages_len %}
+<div class="col-12">
+    <div class="pagination">            
+            <div class="pagination-items">
+                {% if page.has_previous %}
+                    <a class="pagination-item prev" href="page={{ page.previous_page_number }}">«</a>
+                {% endif %}
+                {% if pages_len < 2 %}
+                {% elif pages_len < 7 %}
+                    {% for i in page.paginator.page_range %}
+                        {% if i == page.number %}
+                            <span class="pagination-item active">{{ page.number }}</span>
+                        {% else %}
+                            <a class="pagination-item" href="?page={{ i }}">{{ i }}</a>
+                        {% endif %}
+                    {% endfor %}
+                {% elif pages_len > 6 and page.number < 5 %}
+                    {% for i in page.paginator.page_range %}
+                        {% if i == page.number %}
+                            <span class="pagination-item active">{{ page.number }}</span>
+                        {% else %}
+                            <a class="pagination-item" href="?page={{ i }}">{{ i }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <span class="pagination-item pagination-item_dots">...</span>
+                    <a class="pagination-item" href="?page={{ object_list.num_pages }}">{{ pages_len }}</a>
+                {% else %}
+                    <span class="pagination-item pagination-item_dots">...</span>
+                    <a class="pagination-item" href="?page={{ paage.previous_page_number }}">{{ paage.previous_page_number }}</a>
+                    <span class="pagination-item active">{{ page.number }}</span>
+                    <a class="pagination-item" href="?page={{ paage.next_page_number }}">{{ paage.next_page_number }}</a>
+                    <span class="pagination-item pagination-item_dots">...</span>
+                    <a class="pagination-item" href="?page={{ object_list.num_pages }}">{{ pages_len }}</a>
+                {% endif %}
+                {% if page.has_next %}
+                    <a class="pagination-item next" href="?page={{ page.next_page_number }}">»</a>
+                {% endif %}
+            </div>
+    </div>
+</div>
+{% endwith %}

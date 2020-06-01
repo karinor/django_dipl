@@ -1,0 +1,200 @@
+extends base.pug
+block append head
+	- var pageTitle = "Оформление заказа"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li 
+								span Оформление заказа
+								
+					p.page__title Оформление заказа
+
+				.col-12.col-xl-8
+					form.checkout-form
+						.checkout-form__part
+							.checkout-form__part-title
+								span.checkout-form__part-title-number 1.
+								b.checkout-form__part-title-text Данные получателя
+							
+							.checkout-form__part-body
+								.checkout-group.required
+									label.checkout-group__label(for="name") ФИО
+									input(name="name" class="checkout-group__input form-control is-valid" type="text" id="name" value="" required="required")
+									.checkout-group__message.valid-feedback Готово!
+
+								.checkout-group.required
+									label.checkout-group__label(for="email") Email
+									input(name="email" class="checkout-group__input form-control is-invalid" type="email" id="email" value="" required="required")
+									.checkout-group__message.invalid-feedback Обязательное поле для заполнение
+
+								.checkout-group.required
+									label.checkout-group__label(for="phone") Телефон
+									input(name="phone" class="checkout-group__input form-control is-valid" type="tel" id="phone" value="" required="required")
+									.checkout-group__message.valid-feedback Готово!
+									
+								.custom-control.custom-checkbox.checkout-form__toggle-area-trigger.collapsed(href="#toggle-area-1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="toggle-area-1")
+									input.custom-control-input(type="checkbox" name="legal" id="customControlInline")
+									label.custom-control-label(for="customControlInline") Юр. лицо
+
+								.checkout-form__toggle-area.collapse#toggle-area-1
+									.checkout-form__toggle-area-wrapper
+										.checkout-group.required
+											label.checkout-group__label(for="organization") Организация
+											input(name="organization" class="checkout-group__input form-control" type="text" id="organization" value="" required="required")
+											.checkout-group__message.valid-feedback Готово!
+
+										.checkout-group.required
+											label.checkout-group__label(for="inn") ИНН
+											input(name="inn" class="checkout-group__input form-control" type="email" id="inn" value="" required="required")
+											.checkout-group__message.invalid-feedback Обязательное поле для заполнение
+
+										.checkout-group.required
+											label.checkout-group__label(for="kpp") КПП
+											input(name="kpp" class="checkout-group__input form-control" type="tel" id="kpp" value="" required="required")
+											.checkout-group__message.valid-feedback Готово!
+
+						.checkout-form__part
+							.checkout-form__part-title
+								span.checkout-form__part-title-number 2.
+								b.checkout-form__part-title-text Способ доставки
+							
+							.checkout-form__part-body
+								ul.checkout-form__tab-buttons.nav#myTab(role="tablist")
+									li
+										a.active#checkout-tab-1(data-toggle="tab" href="#checkout-tab-pane-1" role="tab" aria-controls="checkout-tab-pane-1" aria-selected="true") Самовывоз
+									li
+										a#checkout-tab-2(data-toggle="tab" href="#checkout-tab-pane-2" role="tab" aria-controls="checkout-tab-pane-2" aria-selected="true") Транспортной компанией
+
+								.checkout-form__tab-content.tab-content#myTabContent
+									.tab-pane.fade.show.active#checkout-tab-pane-1(role="tabpanel" aria-labelledby="checkout-tab-1")
+										.checkout-form__courier-info
+											.checkout-form__courier-info-row
+												span.checkout-form__courier-info-title Адрес магазина
+												span.checkout-form__courier-info-value г. Вологда, ул. Некрасова, д. 25
+
+											.checkout-form__courier-info-row
+												span.checkout-form__courier-info-title Самовывоз возможен
+												span.checkout-form__courier-info-value 30.04.2019
+
+											.checkout-form__courier-info-row
+												span.checkout-form__courier-info-title Стоимость
+												span.checkout-form__courier-info-value Бесплатно
+
+									.tab-pane.fade.show#checkout-tab-pane-2(role="tabpanel" aria-labelledby="checkout-tab-2")
+										.row
+											.col-12.col-md-6
+												.checkout-group.required
+													label.checkout-group__label(for="index") Почтовый индекс
+													input(name="index" class="checkout-group__input form-control" type="text" id="index" value="" required="required")
+													.checkout-group__message.valid-feedback Готово!
+
+												.checkout-group
+													label.checkout-group__label(for="district") Район
+													input(name="district" class="checkout-group__input form-control" type="text" id="district" value="")
+													.checkout-group__message.invalid-feedback Обязательное поле для заполнение
+
+												.checkout-group.required
+													label.checkout-group__label(for="street") Улица
+													input(name="street" class="checkout-group__input form-control" type="text" id="street" value="" required="required")
+													.checkout-group__message.valid-feedback Готово!
+											
+											.col-12.col-md-6
+												.checkout-group.required
+													label.checkout-group__label(for="region") Область
+													input(name="region" class="checkout-group__input form-control" type="text" id="region" value="" required="required")
+													.checkout-group__message.valid-feedback Готово!
+
+												.checkout-group.required
+													label.checkout-group__label(for="city") Город/населенный пункт
+													input(name="city" class="checkout-group__input form-control" type="text" id="city" value="" required="required")
+													.checkout-group__message.valid-feedback Готово!
+
+												.checkout-form__inputs-row
+													.checkout-group.required
+														label.checkout-group__label(for="building") Дом
+														input(name="building" class="checkout-group__input form-control" type="text" id="building" value="" required="required")
+														.checkout-group__message.invalid-feedback Обязательное поле для заполнение
+
+													.checkout-group
+														label.checkout-group__label(for="building-part") Корпус
+														input(name="building-part" class="checkout-group__input form-control" type="text" id="building-part" value="")
+														.checkout-group__message.valid-feedback Готово!
+
+													.checkout-group.required
+														label.checkout-group__label(for="appartments") Квартира
+														input(name="appartments" class="checkout-group__input form-control" type="text" id="appartments" value="" required="required")
+														.checkout-group__message.valid-feedback Готово!
+
+											.col-12
+												.checkout-group
+													label.checkout-group__label(for="message") Комментарий
+													textarea(name="message" class="checkout-group__input form-control" type="text" id="message" value="" placeholder="Напишите дополнительную информацию по доставке")
+
+						.checkout-form__part
+							.checkout-form__part-title
+								span.checkout-form__part-title-number 3.
+								b.checkout-form__part-title-text Способ оплаты
+							
+							.checkout-form__part-body
+								.checkout-form__payment-types
+									label.payment-type(for="payment-1")
+										input.payment-type__input(type="radio" name="payment" id="payment-1" value="bank" checked="checked")
+										span.payment-type__new-checkbox Банковской картой онлайн
+									
+									label.payment-type(for="payment-2")
+										input.payment-type__input(type="radio" name="payment" id="payment-2" value="bank" checked="checked")
+										span.payment-type__new-checkbox Оплата по счету
+
+									label.payment-type(for="payment-3")
+										input.payment-type__input(type="radio" name="payment" id="payment-3" value="bank" checked="checked")
+										span.payment-type__new-checkbox Оплата при получении
+
+						.checkout-form__footer
+							.checkout-form__footer-policy Нажимая «Оформить заказ» я соглашаюсь на 
+								a(href="#") обработку персональных данных
+
+							.checkout-form__footer-button
+								input.simple-button.checkout-form__footer-submit(type="submit" value="Оформить заказ")
+								span.checkout-form__footer-submit-error Одно или несколько полей заполнены неправильно.
+
+				.col-12.col-xl-4
+					.order-items
+						.order-items__header Состав заказа
+						.order-items__body
+							.order-items__item
+								span.order-items__item-title Упаковщик вакуумный VIATTO DZ-350MS
+								span.order-items__item-price 4 x 3 590 руб.
+
+							.order-items__item
+								span.order-items__item-title Блендер VIATTO TM-788
+								span.order-items__item-price 1 х 12 590 руб.
+
+							.order-items__item
+								span.order-items__item-title Аппарат для горячего шоколада UGOLINI DELICE SILVER
+								span.order-items__item-price 3 х 30 990 руб.
+
+							.order-items__item
+								span.order-items__item-title Аппарат для горячего шоколада VEMA CI 2080/5
+								span.order-items__item-price 1 х 3 800 руб.
+
+						.order-items__delivery
+							span.order-items__delivery-title Доставка
+							span.order-items__delivery-value Бесплатно
+
+						.order-items__total
+							span.order-items__total-title Итого:
+							b.order-items__total-value 55 800 руб.
+
+
+
+
+
+

@@ -1,0 +1,214 @@
+extends base.pug
+block append head
+	- var pageTitle = "Корзина"
+
+block content
+
+	.page
+		.container
+			.row
+				.col-12
+					.breadcrumbs
+						ul
+							li
+								a(href="/") Главная
+							li 
+								span Корзина
+								
+					p.page__title Корзина
+
+
+					.cart()
+						.cart-container
+							.cart-table
+								.cart-table-head
+									.cart-table-row
+										.cart-table-col.cart-table-col_product
+											span.cart-table-head__title Ваш заказ
+										
+										.cart-table-col.cart-table-col_price
+											span.cart-table-head__title Цена
+										
+										.cart-table-col.cart-table-col_count
+											span.cart-table-head__title Количество
+										
+										.cart-table-col.cart-table-col_total
+											span.cart-table-head__title Сумма
+										
+										.cart-table-col.cart-table-col_delete
+								
+								
+								.cart-table-body
+									form.cart-item(action="" method="POST")
+										.cart-table-row
+											.cart-table-col.cart-table-col_product
+												a.cart-item-link(href="#")
+													.cart-item-thumb
+														img.cart-item-thumb__image(src="/static/images/catalog-block-img2.jpg" alt="alt")
+															
+													p.cart-item-title Кулер настольный с нагревом и электронным охлаждением TD-AEL-183a white
+											
+											.cart-table-col.cart-table-col_price
+												.cart-prices
+													p.cart-item-old-price
+														span.cart-item-old-price-value(data-vip-price="3100") 3 100
+														span.cart-item-old-price-currency  руб.
+													p.cart-item-price.cart-item-price_sale
+														span.cart-item-price-value(data-vip-price="422") 2 900
+														span.cart-item-price-currency  руб.
+											
+											.cart-table-col.cart-table-col_count
+												.amount
+													.product-amount
+														.product-amount__button.product-amount__button_minus
+															svg(role="img" width="6px" height="10px")
+																use(xlink:href="/static/images/sprite.svg#amount-arrow")
+
+														.product-amount__field
+															input(type="number" name="product-count" min="1" max="100" value="4")
+														.product-amount__button.product-amount__button_plus
+															svg(role="img" width="6px" height="10px")
+																use(xlink:href="/static/images/sprite.svg#amount-arrow")
+											
+											.cart-table-col.cart-table-col_total
+												.cart-item-total-wrap
+													span.cart-item-total 28 000
+													span.cart-item-currency руб.
+											
+											.cart-table-col.cart-table-col_delete
+												button(class="cart-item-delete" type="button")
+
+									form.cart-item(action="" method="POST")
+										.cart-table-row
+											.cart-table-col.cart-table-col_product
+												a.cart-item-link(href="#")
+
+													.cart-item-thumb.cart-item-thumb_no-photo
+														svg.cart-item-thumb__icon(role="img")
+															use(xlink:href="/static/images/sprite.svg#no_photo")
+															
+													p.cart-item-title afasfasfasf asfasfasfasf asfasf
+											
+											.cart-table-col.cart-table-col_price
+												.cart-prices
+													p.cart-item-price
+														span.cart-item-price-value(data-vip-price="429") 2 900
+														span.cart-item-price-currency  руб.
+											
+											.cart-table-col.cart-table-col_count
+												.amount
+													.product-amount
+														.product-amount__button.product-amount__button_minus
+															svg(role="img" width="6px" height="10px")
+																use(xlink:href="/static/images/sprite.svg#amount-arrow")
+
+														.product-amount__field
+															input(type="number" name="product-count" min="1" max="100" value="3")
+														.product-amount__button.product-amount__button_plus
+															svg(role="img" width="6px" height="10px")
+																use(xlink:href="/static/images/sprite.svg#amount-arrow")
+											
+											.cart-table-col.cart-table-col_total
+												.cart-item-total-wrap
+													span.cart-item-total 28 000
+													span.cart-item-currency руб.
+											
+											.cart-table-col.cart-table-col_delete
+												button(class="cart-item-delete" type="button")
+
+									//- form.cart-item(action="" method="POST")
+									//- 	.cart-table-row
+									//- 		.cart-table-col.cart-table-col_product
+									//- 			a.cart-item-link(href="#")
+									//- 				.cart-item-thumb
+									//- 					img.cart-item-thumb__image(src="/static/images/catalog-block-img1.jpg" alt="alt")
+															
+									//- 				p.cart-item-title afasfasfasf asfasfasfasf asfasf
+											
+									//- 		.cart-table-col.cart-table-col_price
+									//- 			.cart-prices
+									//- 				p.cart-item-old-price(data-vip-price="2100") 2 100 руб.
+									//- 				p.cart-item-price.cart-item-price_sale(data-vip-price="1900") 1 500 руб.
+											
+									//- 		.cart-table-col.cart-table-col_count
+									//- 			.amount
+									//- 				.product-amount
+									//- 					.product-amount__button.product-amount__button_minus
+									//- 						svg(role="img" width="6px" height="10px")
+									//- 							use(xlink:href="/static/images/sprite.svg#amount-arrow")
+
+									//- 					.product-amount__field
+									//- 						input(type="number" name="product-count" min="1" max="100" value="1")
+									//- 					.product-amount__button.product-amount__button_plus
+									//- 						svg(role="img" width="6px" height="10px")
+									//- 							use(xlink:href="/static/images/sprite.svg#amount-arrow")
+											
+									//- 		.cart-table-col.cart-table-col_total
+									//- 			.cart-item-total-wrap
+									//- 				span.cart-item-total 28 000
+									//- 				span.cart-item-currency руб.
+											
+									//- 		.cart-table-col.cart-table-col_delete
+									//- 			button(class="cart-item-delete" type="button")
+
+									//- form.cart-item(action="" method="POST")
+									//- 	.cart-table-row
+									//- 		.cart-table-col.cart-table-col_product
+									//- 			a.cart-item-link(href="#")
+
+									//- 				.cart-item-thumb.cart-item-thumb_no-photo
+									//- 					svg.cart-item-thumb__icon(role="img")
+									//- 						use(xlink:href="/static/images/sprite.svg#no_photo")
+															
+									//- 				p.cart-item-title afasfasfasf asfasfasfasf asfasf
+											
+									//- 		.cart-table-col.cart-table-col_price
+									//- 			.cart-prices
+									//- 				p.cart-item-price(data-vip-price="1900") 1 900 руб.
+											
+									//- 		.cart-table-col.cart-table-col_count
+									//- 			.amount
+									//- 				.product-amount
+									//- 					.product-amount__button.product-amount__button_minus
+									//- 						svg(role="img" width="6px" height="10px")
+									//- 							use(xlink:href="/static/images/sprite.svg#amount-arrow")
+
+									//- 					.product-amount__field
+									//- 						input(type="number" name="product-count" min="1" max="100" value="1")
+									//- 					.product-amount__button.product-amount__button_plus
+									//- 						svg(role="img" width="6px" height="10px")
+									//- 							use(xlink:href="/static/images/sprite.svg#amount-arrow")
+											
+									//- 		.cart-table-col.cart-table-col_total
+									//- 			.cart-item-total-wrap
+									//- 				span.cart-item-total 28 000
+									//- 				span.cart-item-currency руб.
+											
+									//- 		.cart-table-col.cart-table-col_delete
+									//- 			button(class="cart-item-delete" type="button")
+
+
+							.row
+								.col-xl-6.col-12
+									p.cart-desc После оформления заявки на сайте мы свяжемся с вами. Уточним цены на интересующие товары, рассчитаем сроки и стоимость доставки.
+								
+								.col-xl-6.col-12
+									.cart-order
+										p.cart-text Итого: 
+											span.cart-total 123123123
+											span.cart-currency руб.
+											span.cart-text__sell 500
+											
+										a.cart-order-btn.simple-button(href="#") Оформить заказ
+
+
+
+
+
+
+
+
+
+
+
+

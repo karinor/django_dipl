@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="breadcrumbs">
+					<ul>
+						<li><a href="/">Главная</a></li>
+						<li> <span>Личный кабинет</span></li>
+					</ul>
+				</div>
+				<p class="page__title">Личный кабинет</p>
+			</div>
+			<div class="col-12 col-lg-4 col-xl-3">
+				<ul class="sidebar">
+					<li class="sidebar-item"><a class="sidebar-link" href="{% url 'account:ProfileOrders' %}">Мои заказы</a></li>
+					<li class="sidebar-item current-sidebar-item"> <a class="sidebar-link" href="#">Личные данные</a></li>
+					<li class="sidebar-item"><a class="sidebar-link" href="{% url 'catalog:FavoritesDetails' %}">Избранные товары</a></li>
+					<li class="sidebar-item"><a class="sidebar-link" href="{% url 'account:logout' %}">Выход</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-lg-8 col-xl-9">
+				<form method="POST" class="simple-form needs-validation">
+					{% csrf_token %}
+					<b class="simple-form-title">Личные данные</b>
+					<div class="simple-form-group required">
+						<label class="simple-form-group__title" for="data-name">ФИО</label>
+						<input class="simple-form-control form-control" type="text" name="fullname" id="data-name" value="{{ user_data.fullname }}"/>
+						<div class="simple-form__feedback invalid-feedback">Обязательное поле для заполнение</div>
+					</div>
+					<div class="simple-form-group required">
+						<label class="simple-form-group__title" for="data-phone">Телефон</label>
+						<input class="simple-form-control form-control" type="tel" name="phone" id="data-phone" value="{{ user_data.phone }}"/>
+						<div class="simple-form__feedback invalid-feedback">Обязательное поле для заполнение</div>
+					</div>
+					<div class="simple-form-group required">
+						<label class="simple-form-group__title" for="data-email">Email/Login</label>
+						<input class="simple-form-control form-control" type="email" name="email" id="data-email" value="{{ user_data.email }}"/>
+						<div class="simple-form__feedback invalid-feedback">Обязательное поле для заполнение</div>
+					</div>
+					<input class="simple-button simple-form__submit" type="submit" value="Сохранить"/>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

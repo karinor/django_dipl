@@ -1,0 +1,242 @@
+/*	Fonts
+---------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=cyrillic,cyrillic-ext);
+
+
+
+
+
+
+/*	Reset
+---------------------------------------*/
+*  {
+	margin: 0;
+	padding: 0;
+}
+*:focus, *:focus *{
+	box-shadow: none !important;
+}
+.custom-control-input:focus~.custom-control-label::before{
+	box-shadow: none !important;
+}
+html {
+	min-height: 100%;
+	height: 100%;
+	&.opened{
+		overflow: hidden;
+		position: fixed;
+	}
+}
+body {
+	min-width: 320px;
+	height: 100%;
+	margin: 0;
+	padding: 130px 0 0;
+	font-family: "Roboto";
+	&.opened {
+		overflow: hidden;
+		height: 100%;
+	}
+}
+main {
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
+	overflow: hidden;
+	background-position: center top;
+	width: 100%;
+}
+
+ol, ul  { 
+	padding: 0;
+	margin: 0;
+}
+li  {
+	list-style-type: none;
+}
+.h1, .h2, .h3, .h4, h1, h2, h3, h4, p  {
+	line-height: normal;
+	margin: 0;
+	padding: 0;
+}
+a:focus, button:focus, input:focus, textarea:focus  {
+	outline: 0;
+	text-decoration: none;
+}
+a  {
+	text-decoration: none;
+	&:hover  {
+		text-decoration: none;
+	}
+}
+
+// General styles
+.base {
+    &-wrapper, &-container {
+        width: 100%;
+    }
+    
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    &-container {
+        flex: 1  auto;
+        overflow: initial;
+    }
+}
+
+.page{
+	padding: 0 0 90px;
+	&__title{
+		display: block;
+		padding: 0 0 20px;
+		color: #373a3c;
+		font-size: 30px;
+		font-weight: 700;
+		&_center{
+			text-align: center;
+			padding: 10px 0 25px;
+		}
+	}
+}
+
+.breadcrumbs {
+	padding: 30px 0 15px;
+	ul {
+		display: block;
+		font-size: 0;
+		li {
+			display: inline;
+			font-size: 16px;
+			font-weight: 400;
+			color: #818a91;
+			a {
+				color: $main-color;
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+			&:not(:last-child){
+				&:after{
+					content: '/';
+					margin: 0 10px;
+					color: #818a91;
+					font-size: 16px;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}
+
+.sidebar {
+    $this: &;
+    background-color: #fff;
+    margin: 0 0 30px;
+
+    &-item {
+        display: block;
+
+        &:hover {
+            #{$this}-link {
+				background-color: #f5f5f5;
+				color: $font-color;
+            }
+        }
+
+        &.current-sidebar-item {
+            #{$this}-link {
+				background-image: $main-color-gradient;
+				border-color: $main-color;
+                color: #fff;
+            }
+		}
+
+		&:first-child{
+			#{$this}-link{
+				border-width: 1px;
+				border-radius: 4px 4px 0 0;
+			}
+		}
+		&:last-child{
+			#{$this}-link{
+				border-width: 1px;
+				border-radius: 0 0 4px 4px;
+			}
+		}
+    }
+
+    &-link {
+        display: block;
+        display: flex;
+        align-items: center;
+        position: relative;
+        color: $font-color;
+        font-size: 16px;
+        font-weight: 400;
+		padding: 12px 20px;
+		border: 1px solid #ddd;
+		border-width: 0 1px 1px 1px;
+        transition: color 200ms ease, background-color 200ms ease;
+    }
+}
+
+
+
+
+
+
+
+
+/*==========  Desktop First Method  ==========*/
+@media (min-width: 1200px){
+	.container {
+		width: 1200px;
+		max-width: 100%;
+	}
+}
+
+@media (max-width : 1199px) {
+	body{
+		padding: 60px 0 0;
+	}
+	.container {
+		width: 100%;
+		max-width: 100%;
+	}
+	main{
+		width: 100%;
+	}
+}
+
+@media (max-width : 991px) {
+	
+}
+
+@media (max-width : 767px) {
+	.breadcrumbs{
+		padding: 14px 0 8px;
+		ul{
+			li:after{
+				margin: 0 3px;
+			}
+		}
+	}
+}
+
+@media (max-width : 575px) {
+	.page{
+		padding-bottom: 15px;
+		&__title{
+			padding: 0 0 10px;
+			font-size: 22px;
+			line-height: 26px;
+			&_center{
+				padding: 0 0 15px;
+			}
+		}
+	}
+}

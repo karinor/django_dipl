@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load forms_css_class %}
+<div class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumbs" itemprop="http://schema.org/breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                    <ul>
+                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <a href="/" title="Главная" itemprop="url"><span itemprop="name">Главная</span></a>
+                        <meta itemprop="position" content="1">
+                        </li>
+                        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <span itemprop="name">Клиентам</span>
+                        <meta itemprop="position" content="2">
+                        </li>
+                    </ul>
+                </div>							
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form class="simple-form registration needs-validation" method="POST">
+                    {% csrf_token %}
+                    <b class="simple-form-title">Регистрация</b>
+                    <div class="simple-form-group required">
+                        <label class="simple-form-group__title" for="data-email">Email</label>
+                            {{ form.username|field_class }}
+                        <div class="simple-form__feedback invalid-feedback">Обязательное поле для заполнение</div>
+                    </div>
+                    <div class="simple-form-group required">
+                        <label class="simple-form-group__title" for="data-password">Пароль</label>
+                            {{ form.password1|field_class }}
+                        <div class="simple-form__feedback invalid-feedback">Обязательное поле для заполнение</div>
+                    </div>
+                    <div class="simple-form-group required">
+                        <label class="simple-form-group__title" for="data-password-repeat">Повторите пароль</label>
+                            {{ form.password2|field_class }}
+                        <div class="simple-form__feedback invalid-feedback">Обязательное поле для заполнение</div>
+                    </div>
+                    <input class="simple-button simple-form__submit" type="submit" value="Зарегистрироваться">
+                    <span class="simple-form__message">
+                        {{ form.errors.as_text }}
+                    </span>
+                    <a href="{% url 'account:login' %}" class="simple-form__link">Уже есть аккаунт? Войти.</a>
+                    <div class="simple-form__action simple-form__action_processing">
+                        <svg class="simple-form__action-svg" role="img" width="57px" height="57px">
+                            <use xlink:href="{% static '/images/sprite.svg' %}#preloader"></use>
+                        </svg>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% comment %} {% extends  'base.html' %}
+{% block content %}
+<div class="card">
+<div class="card-body">
+<h4 class="card-title">Регистрация</h4>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+</div>
+</div>
+{% endblock %} {% endcomment %}

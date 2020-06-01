@@ -1,0 +1,58 @@
+{% load static %}
+<form class="cart-item" action="" method="POST" data-id="{{ product.pk }}">
+    <div class="cart-table-row">
+        <div class="cart-table-col cart-table-col_product">
+            <a class="cart-item-link" href="{% url 'catalog:ProductDetails' slug=product.slug %}">
+                <div class="cart-item-thumb"><img class="cart-item-thumb__image" src="{{ MEDIA_URL }}{{ product.image }}" alt="alt"/></div>
+                <p class="cart-item-title">{{ product.title }}</p>
+            </a>
+        </div>
+        <div class="cart-table-col cart-table-col_price">
+            <div class="cart-prices">
+                {% if product.discount_multiplier < 1 %}
+                    <p class="cart-item-old-price">
+                        <span class="cart-item-old-price-value" data-vip-price="{{ product.get_vip_price_default }}">{{ product.price }}</span>
+                        <span class="cart-item-old-price-currency"> руб.</span>
+                    </p>
+                    <p class="cart-item-price cart-item-price_sale">
+                        <span class="cart-item-price-value" data-vip-price="{{ product.get_vip_price }}">{{ product.get_discount_price }}</span>
+                        <span class="cart-item-price-currency"> руб.</span>
+                    </p>
+                </div>
+                {% else %}
+                    <p class="cart-item-price">
+                        <span class="cart-item-price-value" data-vip-price="{{ product.get_vip_price }}">{{ product.get_discount_price }}</span>
+                        <span class="cart-item-price-currency"> руб.</span>
+                    </p>
+                </div>
+                {% endif %}
+        </div>
+        <div class="cart-table-col cart-table-col_count">
+            <div class="amount">
+                <div class="product-amount">
+                    <div class="product-amount__button product-amount__button_minus">
+                        <svg role="img" width="6px" height="10px">
+                            <use xlink:href="/static/images/sprite.svg#amount-arrow"></use>
+                        </svg>
+                    </div>
+                    <div class="product-amount__field">
+                        <input type="number" name="product-count" min="1" max="100" value="{{ product.count }}"/>
+                    </div>
+                    <div class="product-amount__button product-amount__button_plus">
+                        <svg role="img" width="6px" height="10px">
+                            <use xlink:href="/static/images/sprite.svg#amount-arrow"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-table-col cart-table-col_total">
+            <div class="cart-item-total-wrap"><span class="cart-item-total">12345</span>
+                <span class="cart-item-currency">руб.</span>
+            </div>
+        </div>
+        <div class="cart-table-col cart-table-col_delete">
+            <button class="cart-item-delete" type="button"></button>
+        </div>
+    </div>
+</form>
