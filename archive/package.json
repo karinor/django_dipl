@@ -9,11 +9,11 @@
   "author": "Dmitry Kravtsov",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/core": "^7.20.7",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.4",
+    "babel-loader": "^8.3.0",
     "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
@@ -36,9 +36,9 @@
     "gulp-tinypng-compress": "^1.2.1",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-stream": "^5.1.1"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.2",
